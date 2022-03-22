@@ -13,7 +13,7 @@ import java.util.List;
 @Getter
 public class Employee {
 
-    @Id @GeneratedValue(strategy = GenerationType.AUTO)
+    @Id
     @Column(name = "EMPLOYEE_NO")
     private Long id;
 
