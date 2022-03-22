@@ -1,12 +1,13 @@
 package Kim.OwnHub.entity;
 
 import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name = "SCHEDULE")
-@Getter
+@Getter @Setter
 public class Schedule {
 
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
@@ -23,7 +24,7 @@ public class Schedule {
     private String scontent;
 
     @ManyToOne
-    @JoinColumn(name = "EMPLOYEE_SCHEDULE_NO")
-    private Employee semployee;
+    @JoinColumn(name = "UID")
+    private UserInfo suid;
 
 }

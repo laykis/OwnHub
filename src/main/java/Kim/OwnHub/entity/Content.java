@@ -1,13 +1,14 @@
 package Kim.OwnHub.entity;
 
 import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.Date;
 
 @Entity
 @Table(name = "CONTENT")
-@Getter
+@Getter @Setter
 public class Content {
 
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
@@ -24,15 +25,15 @@ public class Content {
     private Date wdate;
 
     @ManyToOne
-    @JoinColumn(name = "EMPLOYEE_NO")
-    private Employee cemployee;
-
-    @ManyToOne
     @JoinColumn(name = "TEAM_ID")
     private Team cteam;
 
     @ManyToOne
     @JoinColumn(name = "BOARD_ID")
     private Board cboard;
+
+    @ManyToOne
+    @JoinColumn(name = "UID")
+    private UserInfo cuid;
 
 }

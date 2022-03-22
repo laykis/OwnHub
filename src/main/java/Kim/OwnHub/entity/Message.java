@@ -1,13 +1,14 @@
 package Kim.OwnHub.entity;
 
 import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.Date;
 
 @Entity
 @Table(name = "MESSAGE")
-@Getter
+@Getter @Setter
 public class Message {
 
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
@@ -20,10 +21,10 @@ public class Message {
     @Column(name = "WRITE_DATE")
     private Date mdate;
 
-    @ManyToOne
-    private Employee rempno;
+    @Column(name = "SENDER")
+    private String sender;
 
-    @ManyToOne
-    private Employee sempno;
+    @Column(name = "RECEIVER")
+    private String receiver;
 
 }

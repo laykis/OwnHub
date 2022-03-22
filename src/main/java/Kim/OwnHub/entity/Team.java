@@ -1,6 +1,7 @@
 package Kim.OwnHub.entity;
 
 import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -8,7 +9,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "TEAM")
-@Getter
+@Getter @Setter
 public class Team {
 
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
@@ -18,11 +19,11 @@ public class Team {
     @Column(name = "TEAM_NAME")
     private String tname;
 
-    @OneToMany(mappedBy = "team")
-    private List<Employee> employeeList = new ArrayList<>();
-
     @OneToMany(mappedBy = "cteam")
     private List<Content> contents = new ArrayList<>();
+
+    @OneToOne(mappedBy = "team")
+    private UserInfo tuid;
 
 
 }
