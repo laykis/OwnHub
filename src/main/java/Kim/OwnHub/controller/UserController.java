@@ -42,7 +42,7 @@ public class UserController {
     public String joinpro(JoinForm form){
 
         jteam = userService.findTeam(form.getTeam());
-
+        userjoin.setTeam(form.getTeam());
         System.out.println(jteam);
         userjoin.setUserId(form.getUserId());
         userjoin.setUserPw(form.getUserPw());

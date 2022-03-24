@@ -22,8 +22,8 @@ public class Team {
     @OneToMany(mappedBy = "cteam")
     private List<Content> contents = new ArrayList<>();
 
-    @OneToOne(mappedBy = "team")
-    private UserInfo tuid;
+    @OneToMany
+    private List<UserInfo> users = new ArrayList<>();
 
 
 }

@@ -35,7 +35,7 @@ public class UserInfo {
     @Column(name = "AUTHORITY")
     private String auth;
 
-    @OneToOne
+    @ManyToOne
     private Team team;
 
     @OneToMany(mappedBy = "cuid")
