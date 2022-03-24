@@ -36,7 +36,6 @@ public class UserInfo {
     private String auth;
 
     @OneToOne
-    @JoinColumn(name = "TEAM_ID")
     private Team team;
 
     @OneToMany(mappedBy = "cuid")
