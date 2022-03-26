@@ -13,7 +13,6 @@ import java.util.List;
 @RequiredArgsConstructor
 public class UserService {
 
-    private UserInfo userInfo = new UserInfo();
     private final UserRepository userRepository;
 
     public boolean findUserId(String userId){
