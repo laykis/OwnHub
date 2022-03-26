@@ -1,12 +1,11 @@
 package Kim.OwnHub.service;
 
-import Kim.OwnHub.entity.Team;
+
 import Kim.OwnHub.entity.UserInfo;
-import Kim.OwnHub.repository.TeamRepository;
 import Kim.OwnHub.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.ui.Model;
+
 
 import java.util.List;
 
@@ -14,15 +13,20 @@ import java.util.List;
 @RequiredArgsConstructor
 public class UserService {
 
-    private TeamRepository teamRepository;
-    private UserRepository userRepository;
+    private UserInfo userInfo = new UserInfo();
+    private final UserRepository userRepository;
 
-    public Team findTeam(String tname){
-        Team fteam = teamRepository.findByTname(tname);
+    public boolean findUserId(String userId){
 
-        return fteam;
+
+         if(userRepository.findByUserId(userId) != null){
+             return false;
+         }else{
+             return true;
+         }
+
+
     }
-
     public void joining(UserInfo userInfo){
 
         userRepository.save(userInfo);

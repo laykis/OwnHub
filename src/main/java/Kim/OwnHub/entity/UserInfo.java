@@ -35,8 +35,8 @@ public class UserInfo {
     @Column(name = "AUTHORITY")
     private String auth;
 
-    @ManyToOne
-    private Team team;
+    @Column(name = "TEAM_ID")
+    private String team;
 
     @OneToMany(mappedBy = "cuid")
     private List<Content> Ucontents = new ArrayList<>();

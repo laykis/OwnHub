@@ -10,14 +10,16 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import javax.swing.*;
+
 @Controller
 @RequiredArgsConstructor
 public class UserController {
 
 
-    private UserService userService;
+    private final UserService userService;
     private UserInfo userjoin = new UserInfo();
-    private Team jteam = new Team();
+
 
     @GetMapping("/")
     public String main(){
@@ -41,21 +43,25 @@ public class UserController {
     @PostMapping("/user/joinpro")
     public String joinpro(JoinForm form){
 
-        jteam = userService.findTeam(form.getTeam());
-        userjoin.setTeam(form.getTeam());
-        System.out.println(jteam);
-        userjoin.setUserId(form.getUserId());
-        userjoin.setUserPw(form.getUserPw());
-        userjoin.setUsername(form.getUserName());
-        userjoin.setEmail(form.getEmail());
-        userjoin.setAuth(form.getAuth());
-        userjoin.setRole("0");
-        userjoin.setTeam(jteam);
+        if(userService.findUserId(form.getUserId()) == true){
+            userjoin.setUserId(form.getUserId());
+            userjoin.setUserPw(form.getUserPw());
+            userjoin.setUsername(form.getUserName());
+            userjoin.setEmail(form.getEmail());
+            userjoin.setAuth(form.getAuth());
+            userjoin.setRole("0");
+            userjoin.setTeam(form.getTeam());
+
+            userService.joining(userjoin);
+
+            return "";
+        }else{
 
 
-        userService.joining(userjoin);
+            return "/user/check";
+        }
 
-        return "";
+
     }
 
 
