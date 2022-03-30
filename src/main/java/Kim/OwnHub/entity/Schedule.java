@@ -7,7 +7,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "SCHEDULE")
-@Getter @Setter
+@Getter
 public class Schedule {
 
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
@@ -26,5 +26,49 @@ public class Schedule {
     @ManyToOne
     @JoinColumn(name = "UID")
     private UserInfo suid;
+
+    public Schedule(){
+
+    }
+
+    public static class Builder{
+        private String sdate;
+        private String edate;
+        private String scontent;
+        private UserInfo suid;
+
+
+        public Builder sdate(String sdate){
+            this.sdate = sdate;
+            return this;
+        }
+
+        public Builder edate(String edate){
+            this.edate = edate;
+            return this;
+        }
+
+        public Builder scontent(String scontent){
+            this.scontent = scontent;
+            return this;
+        }
+
+        public Builder suid(UserInfo suid){
+            this.suid = suid;
+            return this;
+        }
+
+        public Schedule build(){
+            return new Schedule(this);
+        }
+    }
+
+    public Schedule(Builder builder){
+
+        this.sdate = builder.sdate;
+        this.edate = builder.edate;
+        this.scontent = builder.scontent;
+        this.suid = builder.suid;
+    }
 
 }

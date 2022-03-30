@@ -10,7 +10,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "BOARD")
-@Getter @Setter
+@Getter
 public class Board {
 
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
@@ -28,4 +28,46 @@ public class Board {
 
     @OneToMany(mappedBy = "cboard")
     private List<Content> contents = new ArrayList<>();
+
+    public Board(){
+
+    }
+
+    public static class Builder{
+        private String bname;
+        private String bauth;
+        private String bteam;
+        private List<Content> contents;
+
+        public Builder bname(String bname){
+            this.bname = bname;
+            return this;
+        }
+
+        public Builder bauth(String bauth){
+            this.bauth = bauth;
+            return this;
+        }
+
+        public Builder bteam(String bteam){
+            this.bteam = bteam;
+            return this;
+        }
+
+        public Builder contents(List<Content> contents){
+            this.contents = contents;
+            return this;
+        }
+
+        public Board build(){
+            return new Board(this);
+        }
+    }
+
+    public Board(Builder builder){
+        this.bname = builder.bname;
+        this.bauth = builder.bauth;
+        this.bteam = builder.bteam;
+        this.contents = builder.contents;
+    }
 }

@@ -57,6 +57,8 @@ public class UserInfo {
         private String role;
         private String auth;
         private String team;
+        private List<Content> Ucontents;
+        private List<Schedule> Schedules;
 
         public Builder username(String username){
             this.username = username;
@@ -93,6 +95,16 @@ public class UserInfo {
             return this;
         }
 
+        public Builder Ucontents(List<Content> Ucontents){
+            this.Ucontents = Ucontents;
+            return this;
+        }
+
+        public Builder Schedules(List<Schedule> Schedules){
+            this.Schedules = Schedules;
+            return this;
+        }
+
         //값 세팅 후에 본 객체에 값을 세팅해주는 메소드
         public UserInfo build(){
             return new UserInfo(this);
@@ -110,6 +122,8 @@ public class UserInfo {
         this.role = builder.role;
         this.auth = builder.auth;
         this.team = builder.team;
+        this.Ucontents = builder.Ucontents;
+        this.Schedules = builder.Schedules;
 
     }
 }

@@ -30,10 +30,15 @@ public class Team {
     //기본 빌더패턴
     public static class Builder{
         private String tname;
-
+        private List<Content> contents;
 
         public Builder tname(String tname){
             this.tname = tname;
+            return this;
+        }
+
+        public Builder contents(List<Content> contents){
+            this.contents = contents;
             return this;
         }
 
@@ -44,7 +49,9 @@ public class Team {
 
     //값 세팅 메소드
     public Team(Builder builder){
+
         this.tname = builder.tname;
+        this.contents = builder.contents;
     }
 
 
