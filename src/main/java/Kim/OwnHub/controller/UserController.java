@@ -65,7 +65,6 @@ public class UserController {
 
             } else {
 
-
                 result = "user/check";
             }
         }catch (Exception e){

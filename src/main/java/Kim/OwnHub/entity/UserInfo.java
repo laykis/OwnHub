@@ -103,13 +103,13 @@ public class UserInfo {
 
     //빌더 클래스에 세팅된 값을 엔티티에 값 세팅
     public UserInfo(Builder builder) {
-        this.username = username;
-        this.userId = userId;
-        this.userPw = userPw;
-        this.email = email;
-        this.role = role;
-        this.auth = auth;
-        this.team = team;
+        this.username = builder.username;
+        this.userId = builder.userId;
+        this.userPw = builder.userPw;
+        this.email = builder.email;
+        this.role = builder.role;
+        this.auth = builder.auth;
+        this.team = builder.team;
 
     }
 }
