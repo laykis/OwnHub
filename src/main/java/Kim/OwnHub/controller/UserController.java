@@ -2,6 +2,7 @@ package Kim.OwnHub.controller;
 
 
 import Kim.OwnHub.DTO.JoinDTO;
+import Kim.OwnHub.DTO.LoginDTO;
 import Kim.OwnHub.entity.UserInfo;
 import Kim.OwnHub.service.UserService;
 import lombok.RequiredArgsConstructor;
@@ -24,9 +25,25 @@ public class UserController {
 
     //로그인 처리용 포스트 매핑
     @PostMapping("user/loginpro")
-    public String loginpro(){
+    public String loginpro(LoginDTO form){
 
-        return "";
+        String result = "";
+
+        if(userService.findUserId(form.getUserId()) == false){
+
+            if(form.getUserPw().trim().equals(userService.getUserPw(form.getUserId()))){
+
+                result = "home";
+            }else{
+
+                result = "fail";
+            }
+        }else{
+
+            result = "notfound";
+        }
+
+        return result;
     }
 
     //localhost:8080/user/join 회원가입 페이지

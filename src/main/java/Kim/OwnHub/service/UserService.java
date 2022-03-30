@@ -23,6 +23,11 @@ public class UserService {
          }
     }
 
+    public String getUserPw(String userId){
+
+        return userRepository.findByUserId(userId).getUserPw();
+    }
+
     //회원가입 데이터 영속화 용
     public void joining(UserInfo userInfo){
 
