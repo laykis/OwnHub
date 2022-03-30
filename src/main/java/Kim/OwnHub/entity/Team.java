@@ -9,7 +9,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "TEAM")
-@Getter @Setter
+@Getter
 public class Team {
 
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
@@ -21,6 +21,32 @@ public class Team {
 
     @OneToMany(mappedBy = "cteam")
     private List<Content> contents = new ArrayList<>();
+
+    //기본 생성자
+    public Team(){
+
+    }
+
+    //기본 빌더패턴
+    public static class Builder{
+        private String tname;
+
+
+        public Builder tname(String tname){
+            this.tname = tname;
+            return this;
+        }
+
+        public Team build(){
+            return new Team(this);
+        }
+    }
+
+    //값 세팅 메소드
+    public Team(Builder builder){
+        this.tname = builder.tname;
+    }
+
 
 
 
