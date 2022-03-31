@@ -9,6 +9,6 @@ import java.util.List;
 @Repository
 public interface TeamRepository extends JpaRepository<Team, Long> {
 
-    public String findByTname(String tname);
+    Team findByTname(String tname);
 
 }

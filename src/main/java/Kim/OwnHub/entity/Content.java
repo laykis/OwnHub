@@ -41,6 +41,8 @@ public class Content {
     }
 
     public static class Builder{
+
+
         private String title;
         private String content;
         private Date wdate;
