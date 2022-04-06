@@ -10,6 +10,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 @Controller
 @RequiredArgsConstructor
 public class UserController {
@@ -25,7 +29,7 @@ public class UserController {
 
     //로그인 처리용 포스트 매핑
     @PostMapping("user/loginpro")
-    public String loginpro(LoginDTO form){
+    public String loginpro(LoginDTO form, HttpServletRequest request){
 
         String result = "";
 
@@ -34,6 +38,13 @@ public class UserController {
             if(form.getUserPw().trim().equals(userService.getUserPw(form.getUserId()))){
 
                 result = "home";
+
+                String uid = userService.getUserUid(form.getUserId());
+                HttpSession session = request.getSession();
+                session.setAttribute("uid", uid);
+
+                session.setMaxInactiveInterval(60 * 10);
+
             }else{
 
                 result = "fail";

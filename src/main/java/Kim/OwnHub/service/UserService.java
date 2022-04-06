@@ -13,7 +13,6 @@ import java.util.List;
 public class UserService {
 
     private final UserRepository userRepository;
-    private final TeamRepository teamRepository;
 
     //유저아이디 조회용
     public boolean findUserId(String userId){
@@ -30,6 +29,11 @@ public class UserService {
     public String getUserPw(String userId){
 
         return userRepository.findByUserId(userId).getUserPw();
+    }
+
+    public String getUserUid(String userId){
+
+        return userRepository.findByUserId(userId).getUserId();
     }
 
     //회원가입 데이터 영속화 용
