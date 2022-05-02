@@ -4,32 +4,31 @@ package Kim.OwnHub.controller;
 import Kim.OwnHub.DTO.JoinDTO;
 import Kim.OwnHub.DTO.LoginDTO;
 import Kim.OwnHub.entity.UserInfo;
+import Kim.OwnHub.repository.UserRepository;
 import Kim.OwnHub.service.UserService;
+import Kim.OwnHub.session.SessionManager;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpSession;
 
 @Controller
 @RequiredArgsConstructor
+@RequestMapping("/user")
 public class UserController {
 
     private final UserService userService;
-
-    //localhost:8080 접속 시 메인페이지
-    @GetMapping("/")
-    public String main(){
-
-        return "main";
-    }
+    private final SessionManager sessionManager;
 
     //로그인 처리용 포스트 매핑
-    @PostMapping("user/loginpro")
-    public String loginpro(LoginDTO form, HttpServletRequest request){
+    @PostMapping("/loginpro")
+    public String loginpro(LoginDTO form, HttpServletResponse response){
 
         String result = "";
 
@@ -37,13 +36,10 @@ public class UserController {
 
             if(form.getUserPw().trim().equals(userService.getUserPw(form.getUserId()))){
 
-                result = "home";
+                result = "redirect:/home";
 
                 String uid = userService.getUserUid(form.getUserId());
-                HttpSession session = request.getSession();
-                session.setAttribute("uid", uid);
-
-                session.setMaxInactiveInterval(60 * 10);
+                sessionManager.createSession(uid, response);
 
             }else{
 
@@ -58,14 +54,14 @@ public class UserController {
     }
 
     //localhost:8080/user/join 회원가입 페이지
-    @GetMapping("/user/join")
+    @GetMapping("/join")
     public String join(){
 
-        return "/user/joinForm";
+        return "user/joinForm";
     }
 
     //회원 가입 처리용 포스트 매핑
-    @PostMapping("/user/joinpro")
+    @PostMapping("/joinpro")
     public String joinpro(JoinDTO form){
 
         //반환 값 저장용 변수
