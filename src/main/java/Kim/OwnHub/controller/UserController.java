@@ -28,7 +28,7 @@ public class UserController {
 
     //로그인 처리용 포스트 매핑
     @PostMapping("/loginpro")
-    public String loginpro(LoginDTO form, HttpServletResponse response){
+    public String loginpro(LoginDTO form, HttpServletResponse response, HttpServletRequest request){
 
         String result = "";
 
@@ -39,7 +39,10 @@ public class UserController {
                 result = "redirect:/home";
 
                 String uid = userService.getUserUid(form.getUserId());
-                sessionManager.createSession(uid, response);
+                HttpSession session = request.getSession();
+                session.setAttribute("uid", uid);
+
+
 
             }else{
 
