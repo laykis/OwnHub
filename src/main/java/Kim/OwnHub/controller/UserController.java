@@ -3,6 +3,7 @@ package Kim.OwnHub.controller;
 
 import Kim.OwnHub.DTO.JoinDTO;
 import Kim.OwnHub.DTO.LoginDTO;
+import Kim.OwnHub.DTO.UserDTO;
 import Kim.OwnHub.entity.UserInfo;
 import Kim.OwnHub.repository.UserRepository;
 import Kim.OwnHub.service.UserService;
@@ -28,19 +29,20 @@ public class UserController {
 
     //로그인 처리용 포스트 매핑
     @PostMapping("/loginpro")
-    public String loginpro(LoginDTO form, HttpServletResponse response, HttpServletRequest request){
+    public String loginpro(UserDTO form, HttpServletResponse response, HttpServletRequest request){
 
         String result = "";
 
         if(userService.findUserId(form.getUserId()) == false){
 
-            if(form.getUserPw().trim().equals(userService.getUserPw(form.getUserId()))){
+            if(form.getUserPw().trim().equals(userService.getUserByUserId(form.getUserId()).getUserPw())){
 
                 result = "redirect:/home";
 
-                String uid = userService.getUserUid(form.getUserId());
+                String uid = userService.getUserByUserId(form.getUserId()).getUserId();
                 HttpSession session = request.getSession();
                 session.setAttribute("uid", uid);
+                session.setAttribute("role", form.getRole());
 
 
 
@@ -65,7 +67,7 @@ public class UserController {
 
     //회원 가입 처리용 포스트 매핑
     @PostMapping("/joinpro")
-    public String joinpro(JoinDTO form){
+    public String joinpro(UserDTO form){
 
         //반환 값 저장용 변수
         String result = "";
@@ -76,7 +78,7 @@ public class UserController {
 
                 //UserInfo 엔티티에 설정해놓은 빌더패턴으로 폼에서 받아온 데이터 세팅
                 UserInfo userinfo = new UserInfo.Builder()
-                        .username(form.getUserName())
+                        .username(form.getUsername())
                         .userId(form.getUserId())
                         .userPw(form.getUserPw())
                         .email(form.getEmail())

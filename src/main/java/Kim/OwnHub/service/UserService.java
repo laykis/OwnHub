@@ -1,6 +1,7 @@
 package Kim.OwnHub.service;
 
 
+import Kim.OwnHub.DTO.UserDTO;
 import Kim.OwnHub.entity.UserInfo;
 import Kim.OwnHub.repository.TeamRepository;
 import Kim.OwnHub.repository.UserRepository;
@@ -24,17 +25,11 @@ public class UserService {
          }
     }
 
+    public UserDTO getUserByUserId(String userId){
 
-
-    public String getUserPw(String userId){
-
-        return userRepository.findByUserId(userId).getUserPw();
+        return userRepository.findByUserId(userId);
     }
 
-    public String getUserUid(String userId){
-
-        return userRepository.findByUserId(userId).getUserId();
-    }
 
     //회원가입 데이터 영속화 용
     public void joining(UserInfo userInfo){
