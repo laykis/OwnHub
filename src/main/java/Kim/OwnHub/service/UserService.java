@@ -15,16 +15,6 @@ public class UserService {
 
     private final UserRepository userRepository;
 
-    //유저아이디 조회용
-    public boolean findUserId(String userId){
-
-         if(userRepository.findByUserId(userId) != null){
-             return false;
-         }else{
-             return true;
-         }
-    }
-
     public UserDTO getUserByUserId(String userId){
 
         return userRepository.findByUserId(userId);

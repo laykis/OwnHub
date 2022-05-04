@@ -1,11 +1,8 @@
 package Kim.OwnHub.controller;
 
 
-import Kim.OwnHub.DTO.JoinDTO;
-import Kim.OwnHub.DTO.LoginDTO;
 import Kim.OwnHub.DTO.UserDTO;
 import Kim.OwnHub.entity.UserInfo;
-import Kim.OwnHub.repository.UserRepository;
 import Kim.OwnHub.service.UserService;
 import Kim.OwnHub.session.SessionManager;
 import lombok.RequiredArgsConstructor;
@@ -16,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpSession;
 
 @Controller
@@ -33,16 +29,17 @@ public class UserController {
 
         String result = "";
 
-        if(userService.findUserId(form.getUserId()) == false){
+        if(userService.getUserByUserId(form.getUserId()).getUserId() != null){
 
             if(form.getUserPw().trim().equals(userService.getUserByUserId(form.getUserId()).getUserPw())){
 
                 result = "redirect:/home";
 
-                String uid = userService.getUserByUserId(form.getUserId()).getUserId();
+                UserDTO object = userService.getUserByUserId(form.getUserId());
+
                 HttpSession session = request.getSession();
-                session.setAttribute("uid", uid);
-                session.setAttribute("role", form.getRole());
+                session.setAttribute("uid", object.getId());
+                session.setAttribute("role", object.getRole());
 
 
 
@@ -74,7 +71,7 @@ public class UserController {
 
         try {
             //form 에서 받아온 유저 아이디 중복 검사, 아이디가 존재하지 않으면 값 세팅
-            if (userService.findUserId(form.getUserId()) == true) {
+            if (userService.getUserByUserId(form.getUserId()).getUserId() == null) {
 
                 //UserInfo 엔티티에 설정해놓은 빌더패턴으로 폼에서 받아온 데이터 세팅
                 UserInfo userinfo = new UserInfo.Builder()
