@@ -3,11 +3,9 @@ package Kim.OwnHub.service;
 
 import Kim.OwnHub.DTO.UserDTO;
 import Kim.OwnHub.entity.UserInfo;
-import Kim.OwnHub.repository.TeamRepository;
 import Kim.OwnHub.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import java.util.List;
 
 @Service
 @RequiredArgsConstructor

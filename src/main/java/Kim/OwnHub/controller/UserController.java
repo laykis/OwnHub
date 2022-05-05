@@ -21,38 +21,46 @@ import javax.servlet.http.HttpSession;
 public class UserController {
 
     private final UserService userService;
-    private final SessionManager sessionManager;
 
     //로그인 처리용 포스트 매핑
     @PostMapping("/loginpro")
-    public String loginpro(UserDTO form, HttpServletResponse response, HttpServletRequest request){
+    public String loginpro(UserDTO form, HttpServletResponse response, HttpServletRequest request) {
 
         String result = "";
+        try {
+            if (userService.getUserByUserId(form.getUserId()).getUserId() != null) {
 
-        if(userService.getUserByUserId(form.getUserId()).getUserId() != null){
+                if (form.getUserPw().trim().equals(userService.getUserByUserId(form.getUserId()).getUserPw())) {
 
-            if(form.getUserPw().trim().equals(userService.getUserByUserId(form.getUserId()).getUserPw())){
+                    result = "redirect:/home";
 
-                result = "redirect:/home";
+                    UserDTO object = userService.getUserByUserId(form.getUserId());
 
-                UserDTO object = userService.getUserByUserId(form.getUserId());
-
-                HttpSession session = request.getSession();
-                session.setAttribute("uid", object.getId());
-                session.setAttribute("role", object.getRole());
-
+                    HttpSession session = request.getSession();
+                    session.setAttribute("uid", object.getId());
+                    session.setAttribute("auth", object.getAuth());
+                    session.setMaxInactiveInterval(600);
 
 
-            }else{
+                } else {
 
-                result = "fail";
+                    result = "fail";
+                }
+            } else {
+
+                result = "notfound";
             }
-        }else{
 
-            result = "notfound";
+
+        }catch (Exception e){
+
+            System.out.println(e);
+
+        }finally {
+
+            return result;
+
         }
-
-        return result;
     }
 
     //localhost:8080/user/join 회원가입 페이지
