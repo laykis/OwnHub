@@ -51,5 +51,29 @@ public class HomeController {
         }
     }
 
+    @GetMapping("/userlist")
+    public String userlist(HttpServletRequest request){
+
+        String result = "";
+
+        try{
+
+            String userAuth = request.getAttribute("auth").toString();
+
+            if(Integer.parseInt(userAuth) < 2){
+
+
+                result = "redirect:/home";
+
+            }
+            result = "userlist";
+
+        }catch(Exception e){
+            System.out.println(e);
+        }finally {
+            return result;
+        }
+    }
+
 
 }
