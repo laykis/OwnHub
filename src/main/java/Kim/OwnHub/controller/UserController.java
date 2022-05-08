@@ -4,7 +4,6 @@ package Kim.OwnHub.controller;
 import Kim.OwnHub.DTO.UserDTO;
 import Kim.OwnHub.entity.UserInfo;
 import Kim.OwnHub.service.UserService;
-import Kim.OwnHub.session.SessionManager;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,24 +23,23 @@ public class UserController {
 
     //로그인 처리용 포스트 매핑
     @PostMapping("/loginpro")
-    public String loginpro(UserDTO form, HttpServletResponse response, HttpServletRequest request) {
+    public String loginpro(UserDTO form, HttpServletRequest request) {
 
         String result = "";
+
         try {
             if (userService.getUserByUserId(form.getUserId()).getUserId() != null) {
 
                 if (form.getUserPw().trim().equals(userService.getUserByUserId(form.getUserId()).getUserPw())) {
 
-                    result = "redirect:/home";
-
-                    UserDTO object = userService.getUserByUserId(form.getUserId());
+                    UserDTO uinfo = userService.getUserByUserId(form.getUserId());
 
                     HttpSession session = request.getSession();
-                    session.setAttribute("uid", object.getId());
-                    session.setAttribute("auth", object.getAuth());
-                    session.setMaxInactiveInterval(600);
+                    session.setAttribute("uid", uinfo.getId());
+                    session.setAttribute("auth", uinfo.getAuth());
+                    session.setMaxInactiveInterval(1800);
 
-
+                    result = "redirect:/home";
                 } else {
 
                     result = "fail";
@@ -50,17 +48,11 @@ public class UserController {
 
                 result = "notfound";
             }
-
-
         }catch (Exception e){
-
             System.out.println(e);
-
-        }finally {
-
-            return result;
-
         }
+
+        return result;
     }
 
     //localhost:8080/user/join 회원가입 페이지
@@ -95,7 +87,7 @@ public class UserController {
                 //세팅된 데이터 영속화
                 userService.joining(userinfo);
 
-                result = "";
+                result = "index";
 
             } else {
 

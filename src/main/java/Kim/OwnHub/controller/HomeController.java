@@ -19,12 +19,14 @@ public class HomeController {
         return "home";
     }
 
-    @PostMapping("home/outpro")
-    public String logout(HttpSession session) {
+    @PostMapping("/outpro")
+    public String logout(HttpSession session, HttpServletRequest request) {
+        System.out.println(request.getParameter("uid"));
+        System.out.println(request.getParameter("auth"));
+        session.removeAttribute("uid");
+        session.removeAttribute("auth");
 
-        session.invalidate();
-
-        return "index";
+        return "redirect:/";
     }
 
     @GetMapping("/board")
@@ -33,6 +35,7 @@ public class HomeController {
         String result = "";
 
         try {
+            HttpSession session = request.getSession(false);
             String userAuth = request.getAttribute("auth").toString();
 
             if (Integer.parseInt(userAuth) < 2) {

@@ -14,8 +14,18 @@ public class UserService {
     private final UserRepository userRepository;
 
     public UserDTO getUserByUserId(String userId){
+        UserInfo uinfo = userRepository.findByUserId(userId);
+        UserDTO userDTO = new UserDTO();
 
-        return userRepository.findByUserId(userId);
+        userDTO.setId(uinfo.getId());
+        userDTO.setUserId(uinfo.getUserId());
+        userDTO.setUserPw(uinfo.getUserPw());
+        userDTO.setEmail(uinfo.getEmail());
+        userDTO.setRole(uinfo.getRole());
+        userDTO.setAuth(uinfo.getAuth());
+        userDTO.setTeam(uinfo.getTeam());
+
+        return userDTO;
     }
 
 
