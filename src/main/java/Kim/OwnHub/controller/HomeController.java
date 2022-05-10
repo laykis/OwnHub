@@ -26,6 +26,7 @@ public class HomeController {
         session.removeAttribute("uid");
         session.removeAttribute("auth");
 
+
         return "redirect:/";
     }
 
@@ -36,7 +37,7 @@ public class HomeController {
 
         try {
             HttpSession session = request.getSession(false);
-            String userAuth = request.getAttribute("auth").toString();
+            String userAuth = session.getAttribute("auth").toString();
 
             if (Integer.parseInt(userAuth) < 2) {
 
@@ -61,7 +62,8 @@ public class HomeController {
 
         try{
 
-            String userAuth = request.getAttribute("auth").toString();
+            HttpSession session = request.getSession(false);
+            String userAuth = session.getAttribute("auth").toString();
 
             if(Integer.parseInt(userAuth) < 2){
 
