@@ -19,6 +19,12 @@ public class HomeController {
         return "home";
     }
 
+    @PostMapping("/goback")
+    public String goBackHome(){
+
+        return "redirect:/";
+    }
+
     @PostMapping("/outpro")
     public String logout(HttpSession session, HttpServletRequest request) {
         System.out.println(request.getParameter("uid"));
