@@ -7,6 +7,9 @@ import Kim.OwnHub.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class UserService {
@@ -26,6 +29,26 @@ public class UserService {
         userDTO.setTeam(uinfo.getTeam());
 
         return userDTO;
+    }
+
+    public List<UserInfo> getAllUserByUsername(String username){
+
+        List<UserInfo> ulist = new ArrayList<>();
+
+        ulist = userRepository.findAllByName(username);
+
+        return ulist;
+
+    }
+
+    public List<UserInfo> getAllUserByUserTeam(String team){
+
+        List<UserInfo> ulist = new ArrayList<>();
+
+        ulist = userRepository.findAllByTeam(team);
+
+        return ulist;
+
     }
 
 
