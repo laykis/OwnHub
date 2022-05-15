@@ -45,7 +45,7 @@ public class UserService {
 
         List<UserInfo> ulist = new ArrayList<>();
 
-
+        ulist = userRepository.findByTeam(team);
     
 
         return ulist;
