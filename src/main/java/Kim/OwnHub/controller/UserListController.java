@@ -19,34 +19,5 @@ public class UserListController {
 
     private final UserService userService;
 
-    public List<UserInfo> searchUserByName(String username){
 
-        List<UserInfo> relist = new ArrayList<>();
-
-        try{
-
-            relist = userService.getAllUserByUsername(username);
-
-        }catch(Exception e){
-            System.out.println(e);
-        }
-
-        return relist;
-    }
-
-
-    public List<UserInfo> searchUserByTeam(String team){
-
-        List<UserInfo> relist = new ArrayList<>();
-
-        try{
-
-            relist = userService.getAllUserByUserTeam(team);
-
-        }catch (Exception e){
-            System.out.println(e);
-        }
-
-        return relist;
-    }
 }
