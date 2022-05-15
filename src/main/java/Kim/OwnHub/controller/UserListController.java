@@ -17,9 +17,9 @@ import java.util.List;
 @RequiredArgsConstructor
 public class UserListController {
 
-    private UserService userService;
+    private final UserService userService;
 
-    public List<UserInfo> searchUserByName(String username, HttpServletRequest request){
+    public List<UserInfo> searchUserByName(String username){
 
         List<UserInfo> relist = new ArrayList<>();
 
@@ -35,7 +35,7 @@ public class UserListController {
     }
 
 
-    public List<UserInfo> searchUserByTeam(String team, HttpServletRequest request){
+    public List<UserInfo> searchUserByTeam(String team){
 
         List<UserInfo> relist = new ArrayList<>();
 

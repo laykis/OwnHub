@@ -1,6 +1,8 @@
 package Kim.OwnHub.controller;
 
+import Kim.OwnHub.service.UserService;
 import lombok.RequiredArgsConstructor;
+import org.apache.catalina.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,8 +16,14 @@ import javax.servlet.http.HttpSession;
 @RequestMapping("/home")
 public class HomeController {
 
+
+    private final UserService userService;
+
     @GetMapping("")
     public String home() {
+        String test = userService.getAllUserByUsername("asd").get(0).getUsername();
+        System.out.println(test);
+
         return "home";
     }
 

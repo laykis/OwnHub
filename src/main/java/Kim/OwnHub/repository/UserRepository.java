@@ -1,6 +1,6 @@
 package Kim.OwnHub.repository;
 
-import Kim.OwnHub.DTO.UserDTO;
+
 import Kim.OwnHub.entity.UserInfo;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
@@ -12,7 +12,7 @@ public interface UserRepository extends JpaRepository<UserInfo, Long> {
 
     UserInfo findByUserId(String userId);
 
-    List<UserInfo> findAllByName(String username);
+    List<UserInfo> findByUsername(String username);
 
-    List<UserInfo> findAllByTeam(String team);
+    List<UserInfo> findByTeam(String team);
 }

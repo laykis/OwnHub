@@ -35,7 +35,7 @@ public class UserService {
 
         List<UserInfo> ulist = new ArrayList<>();
 
-        ulist = userRepository.findAllByName(username);
+        ulist = userRepository.findByUsername(username);
 
         return ulist;
 
@@ -45,7 +45,8 @@ public class UserService {
 
         List<UserInfo> ulist = new ArrayList<>();
 
-        ulist = userRepository.findAllByTeam(team);
+
+    
 
         return ulist;
 
