@@ -22,19 +22,16 @@ public class Content {
     private String content;
 
     @Column(name = "WRITE_DATE")
-    private Date wdate;
+    private String wdate;
 
-    @ManyToOne
-    @JoinColumn(name = "TEAM_ID")
-    private Team cteam;
+    @Column(name= "Content_TEAM")
+    private String cteam;
 
-    @ManyToOne
-    @JoinColumn(name = "BOARD_ID")
-    private Board cboard;
+    @Column(name="Content_BOARD")
+    private String cboard;
 
-    @ManyToOne
-    @JoinColumn(name = "UID")
-    private UserInfo cuid;
+    @Column(name ="Content_UID")
+    private String cuid;
 
     public Content(){
 
@@ -45,10 +42,10 @@ public class Content {
 
         private String title;
         private String content;
-        private Date wdate;
-        private Team cteam;
-        private Board cboard;
-        private UserInfo cuid;
+        private String wdate;
+        private String cteam;
+        private String cboard;
+        private String cuid;
 
         public Builder title(String title){
 
@@ -62,25 +59,25 @@ public class Content {
             return this;
         }
 
-        public Builder wdate(Date wdate){
+        public Builder wdate(String wdate){
 
             this.wdate = wdate;
             return this;
         }
 
-        public Builder cteam(Team cteam){
+        public Builder cteam(String cteam){
 
             this.cteam = cteam;
             return this;
         }
 
-        public Builder cboard(Board board){
+        public Builder cboard(String board){
 
             this.cboard = cboard;
             return this;
         }
 
-        public Builder cuid(UserInfo cuid){
+        public Builder cuid(String cuid){
 
             this.cuid = cuid;
             return this;

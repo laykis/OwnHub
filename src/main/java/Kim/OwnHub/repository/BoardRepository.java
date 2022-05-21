@@ -1,9 +1,18 @@
 package Kim.OwnHub.repository;
 
 import Kim.OwnHub.entity.Board;
+import Kim.OwnHub.entity.Content;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface BoardRepository extends JpaRepository<Board, Long> {
+
+    List<Content> findById(String Id);
+
+    List<Content> findByBoardId(String bid);
+
+
 }

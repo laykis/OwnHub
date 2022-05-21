@@ -21,8 +21,6 @@ public class HomeController {
 
     @GetMapping("")
     public String home() {
-        String test = userService.getAllUserByUsername("asd").get(0).getUsername();
-        System.out.println(test);
 
         return "home";
     }
