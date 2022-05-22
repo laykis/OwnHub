@@ -35,18 +35,18 @@ public class BoardService {
 
     }
 
-    public List<Content> viewList(String BoardId){
+//    public List<Content> viewList(String BoardId){
+//
+//        return boardRepository.findByBoardId(BoardId);
+//    }
 
-        return boardRepository.findByBoardId(BoardId);
-    }
-
-    public List<Content> searchByTitle(String title){
-
-        return
-    }
-
-    public List<Content> searchByuserName(String userName){
-
-        return
-    }
+//    public List<Content> searchByTitle(String title){
+//
+//        return
+//    }
+//
+//    public List<Content> searchByuserName(String userName){
+//
+//        return
+//    }
 }
