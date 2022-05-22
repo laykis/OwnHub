@@ -12,7 +12,7 @@ public interface BoardRepository extends JpaRepository<Board, Long> {
 
     List<Content> findById(String Id);
 
-    List<Content> findByBoardId(String bid);
+
 
 
 }
