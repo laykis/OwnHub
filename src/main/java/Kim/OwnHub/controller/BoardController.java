@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequiredArgsConstructor
 public class BoardController {
 
+    //localhost:8080/home/board 페이지에서 들어오는 요청 처리용 컨트롤러
+
+    //의존성 주입(DI, Dependency Injection)
     private final BoardRepository boardRepository;
 
 

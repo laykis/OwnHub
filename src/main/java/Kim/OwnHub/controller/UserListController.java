@@ -17,6 +17,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class UserListController {
 
+    //의존성 주입(DI, Dependency Injection)
     private final UserService userService;
 
 

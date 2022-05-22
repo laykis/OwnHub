@@ -19,6 +19,8 @@ import javax.servlet.http.HttpSession;
 @RequestMapping("/user")
 public class UserController {
 
+
+    //의존성 주입(DI, Dependency Injection)
     private final UserService userService;
 
     //로그인 처리용 포스트 매핑

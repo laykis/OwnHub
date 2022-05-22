@@ -15,6 +15,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class BoardService {
 
+    //의존성 주입(DI, Dependency Injection)
     private final BoardRepository boardRepository;
 
     public void saveContent(ContentDTO form){

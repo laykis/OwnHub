@@ -14,6 +14,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class UserService {
 
+    //의존성 주입(DI, Dependency Injection)
     private final UserRepository userRepository;
 
     public UserDTO getUserByUserId(String userId){

@@ -16,21 +16,26 @@ import javax.servlet.http.HttpSession;
 @RequestMapping("/home")
 public class HomeController {
 
+    //localhost:8080/home 페이지에서 들어오는 요청 처리용 컨트롤러
 
+    //의존성 주입(DI, Dependency Injection)
     private final UserService userService;
 
+    //localhost:8080/home URL 요청시 home.html view
     @GetMapping("")
     public String home() {
 
         return "home";
     }
 
+    //클릭 시 localhost:8080으로 돌아가는 홈버튼 처리용 포스트매핑
     @PostMapping("/goback")
     public String goBackHome(){
 
         return "redirect:/";
     }
 
+    //로그아웃 처리용 포스트 매핑
     @PostMapping("/outpro")
     public String logout(HttpSession session, HttpServletRequest request) {
         System.out.println(request.getParameter("uid"));
@@ -42,6 +47,7 @@ public class HomeController {
         return "redirect:/";
     }
 
+    //게시판 클릭 시 localhost:8080/home/board로 이동
     @GetMapping("/board")
     public String board(HttpServletRequest request) {
 
