@@ -27,15 +27,20 @@ public class UserController {
     @PostMapping("/loginpro")
     public String loginpro(UserDTO form, HttpServletRequest request) {
 
+        //반환 값 저장용 변수
         String result = "";
 
         try {
+            //폼에서 받아온 유저아이디가 DB에 존재하는지 검사
             if (userService.getUserByUserId(form.getUserId()).getUserId() != null) {
 
+                //아이디가 존재하면 비밀번호 비교
                 if (form.getUserPw().trim().equals(userService.getUserByUserId(form.getUserId()).getUserPw())) {
 
+                    //아이디, 비밀번호가 일치하면 데이터 전송용 DTO에 유저 정보를 저장
                     UserDTO uinfo = userService.getUserByUserId(form.getUserId());
 
+                    //세션 요청후 유저의 식별키 "uid"와 권한 "auth" 를 세션에 저장
                     HttpSession session = request.getSession();
                     session.setAttribute("uid", uinfo.getId());
                     session.setAttribute("auth", uinfo.getAuth());
