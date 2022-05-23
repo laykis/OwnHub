@@ -38,8 +38,8 @@ public class HomeController {
     //로그아웃 처리용 포스트 매핑
     @PostMapping("/outpro")
     public String logout(HttpSession session, HttpServletRequest request) {
-        System.out.println(request.getParameter("uid"));
-        System.out.println(request.getParameter("auth"));
+
+        //로그아웃 클릭 시 저장 된 세션 삭제
         session.removeAttribute("uid");
         session.removeAttribute("auth");
 
@@ -51,12 +51,15 @@ public class HomeController {
     @GetMapping("/board")
     public String board(HttpServletRequest request) {
 
+        //결과 값 반환용 변수
         String result = "";
 
         try {
+            //게시판 진입 시 세션 검사
             HttpSession session = request.getSession(false);
             String userAuth = session.getAttribute("auth").toString();
 
+            //요구 권한보다 낮으면 홈으로 redirect
             if (Integer.parseInt(userAuth) < 2) {
 
                 System.out.println("권한이 없습니다.");
@@ -76,13 +79,16 @@ public class HomeController {
     @GetMapping("/userlist")
     public String userlist(HttpServletRequest request){
 
+        //결과 값 반환용 변수
         String result = "";
 
         try{
 
+            //사원조회 탭 진입 시 세션 검사
             HttpSession session = request.getSession(false);
             String userAuth = session.getAttribute("auth").toString();
 
+            //요구 권한이 낮으면 홈으로 redirect
             if(Integer.parseInt(userAuth) < 2){
 
 
