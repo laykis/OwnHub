@@ -5,16 +5,16 @@ import Kim.OwnHub.DTO.UserDTO;
 import Kim.OwnHub.entity.UserInfo;
 import Kim.OwnHub.service.UserService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Controller;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@Controller
+@RestController
 @RequiredArgsConstructor
 @RequestMapping("/user")
 public class UserController {
@@ -26,6 +26,7 @@ public class UserController {
     //로그인 처리용 포스트 매핑
     @PostMapping("/loginpro")
     public String loginpro(UserDTO form, HttpServletRequest request) {
+
 
         //반환 값 저장용 변수
         String result = "";

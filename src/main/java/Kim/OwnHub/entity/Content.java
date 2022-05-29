@@ -71,7 +71,7 @@ public class Content {
             return this;
         }
 
-        public Builder cboard(String board){
+        public Builder cboard(String cboard){
 
             this.cboard = cboard;
             return this;

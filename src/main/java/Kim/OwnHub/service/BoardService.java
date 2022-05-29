@@ -2,13 +2,17 @@ package Kim.OwnHub.service;
 
 import Kim.OwnHub.DTO.ContentDTO;
 import Kim.OwnHub.entity.Content;
+import Kim.OwnHub.entity.UserInfo;
 import Kim.OwnHub.repository.BoardRepository;
 import Kim.OwnHub.repository.ContentRepository;
+import Kim.OwnHub.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -17,15 +21,16 @@ import java.util.List;
 public class BoardService {
 
     //의존성 주입(DI, Dependency Injection)
+    private final BoardRepository boardRepository;
     private final ContentRepository contentRepository;
+    private final UserRepository userRepository;
 
     //게시글 저장 메소드
     public void saveContent(ContentDTO form){
 
         //현재시각을 yyyy/MM/dd 형식으로 반환
-        LocalDate now = LocalDate.now();
-        DateTimeFormatter dtform = DateTimeFormatter.ofPattern("yyyy/MM/dd");
-        String fnow = now.format(dtform);
+
+        String fnow = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH-mm-ss"));
 
         //Content 빌더에 값 세팅
         Content content = new Content.Builder()
@@ -43,18 +48,28 @@ public class BoardService {
 
     }
 
-//    public List<Content> viewList(String BoardId){
-//
-//        return boardRepository.findByBoardId(BoardId);
-//    }
+    public List<Content> viewList(String boardId){
 
-//    public List<Content> searchByTitle(String title){
-//
-//        return
-//    }
-//
-//    public List<Content> searchByuserName(String userName){
-//
-//        return
-//    }
+        List<Content> result = contentRepository.findByCboard(boardId);
+
+        return result;
+    }
+
+    public List<Content> searchByTitle(String title){
+
+        List<Content> result = contentRepository.findByTitle(title);
+
+        return result;
+    }
+
+    public List<Content> searchByUserName(String userName){
+
+        List<UserInfo> uinfo = userRepository.findIdByUsername(userName);
+        List<String> uidlist = new ArrayList<>();
+        for(int i=0; i<uinfo.size(); i++){
+            uidlist.set(i, Long.toString(uinfo.get(i).getId()));
+        }
+
+        return ;
+    }
 }
