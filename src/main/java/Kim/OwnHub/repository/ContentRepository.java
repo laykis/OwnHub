@@ -11,5 +11,7 @@ public interface ContentRepository extends JpaRepository<Content, Long> {
 
     List<Content> findByCboard(String boardId);
 
+    List<Content> findByCuid(String cuid);
+
     List<Content> findByTitle(String title);
 }

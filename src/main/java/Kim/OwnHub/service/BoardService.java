@@ -66,10 +66,22 @@ public class BoardService {
 
         List<UserInfo> uinfo = userRepository.findIdByUsername(userName);
         List<String> uidlist = new ArrayList<>();
+        List<Content> result = new ArrayList<>();
+
         for(int i=0; i<uinfo.size(); i++){
-            uidlist.set(i, Long.toString(uinfo.get(i).getId()));
+            uidlist.add(Long.toString(uinfo.get(i).getId()));
         }
 
-        return ;
+        for(int i=0; i<uidlist.size(); i++){
+
+            List<Content> userlist = contentRepository.findByCuid(uidlist.get(i));
+
+            for(int j=0; j<userlist.size(); j++){
+
+                result.add(userlist.get(j));
+            }
+        }
+
+        return result;
     }
 }
