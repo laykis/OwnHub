@@ -12,7 +12,7 @@ import java.util.Optional;
 @Repository
 public interface MessageRepository extends JpaRepository<Message, Long> {
 
-    Message findById(String id);
+    Optional<Message> findById(Long id);
 
     @Query("select m from Message AS m where m.status = '0' OR m.status = '2'")
     List<Message> findByReceiver(String uid);

@@ -40,7 +40,7 @@ public class Content {
     @Column(name ="Content_UID")
     private String cuid;
 
-
+    //게시글 수정 용 세터
     public void updateContent(ContentDTO contentDTO){
 
         this.title = contentDTO.getTitle();

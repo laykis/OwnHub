@@ -10,10 +10,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 @Service
 @RequiredArgsConstructor
@@ -22,10 +19,13 @@ public class MessageService {
     private final MessageRepository messageRepository;
     private final UserRepository userRepository;
 
+    //메시지 전송 메소드
     public void send(MessageDTO form){
 
+        //현재 시각 저장
         String currentTime = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH-mm-ss"));
 
+        //메시지 값 세팅
         Message message = new Message.Builder()
                 .mcontent(form.getMcontent())
                 .mdate(currentTime)
@@ -34,26 +34,38 @@ public class MessageService {
                 .status("0")
                 .build();
 
+        //메시지 영속화
         messageRepository.save(message);
 
     }
 
+    //수신함 열람 용 메소드
     public List<Message> receiveView(String uid){
+
+        //요청 사용자 uid에 해당하는 메시지 호출
         List<Message> message = messageRepository.findByReceiver(uid);
 
         return message;
 
     }
 
+    //송신함 열람 용 메소드
     public List<Message> sendView(String uid){
+
+        //요청 사용자 uid에 해당하는 메시지 호출
         List<Message> message = messageRepository.findBySender(uid);
 
         return message;
     }
 
+    //수신함 삭제 메소드
     public void recDelete(Long id){
 
-        Message message = messageRepository.findById(Long.toString(id));
+        //
+        Optional<Message> me = messageRepository.findById(id);
+
+        Message message = me.orElseThrow(() -> new NoSuchElementException());
+
 
         if(message.getStatus().equals("1")){
             messageRepository.deleteById(id);
@@ -67,7 +79,9 @@ public class MessageService {
 
     public void sendDelete(Long id) {
 
-        Message message = messageRepository.findById(Long.toString(id));
+        Optional<Message> me = messageRepository.findById(id);
+
+        Message message = me.orElseThrow(() -> new NoSuchElementException());
 
         if (message.getStatus().equals("2")) {
             messageRepository.deleteById(id);
