@@ -9,6 +9,8 @@ import java.util.List;
 @Repository
 public interface ContentRepository extends JpaRepository<Content, Long> {
 
+    Content findById(String id);
+
     List<Content> findByCboard(String boardId);
 
     List<Content> findByCuid(String cuid);

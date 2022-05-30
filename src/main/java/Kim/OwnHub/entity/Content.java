@@ -1,15 +1,22 @@
 package Kim.OwnHub.entity;
 
+import Kim.OwnHub.DTO.ContentDTO;
+import Kim.OwnHub.repository.ContentRepository;
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.Optional;
 
 @Entity
 @Table(name = "CONTENT")
 @Getter
+
 public class Content {
+
+
 
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "CONTENT_ID")
@@ -32,6 +39,16 @@ public class Content {
 
     @Column(name ="Content_UID")
     private String cuid;
+
+
+    public void updateContent(ContentDTO contentDTO){
+
+        this.title = contentDTO.getTitle();
+        this.content = contentDTO.getContent();
+        this.wdate = contentDTO.getWdate();
+    }
+
+
 
     public Content(){
 

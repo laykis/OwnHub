@@ -15,6 +15,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -48,6 +49,22 @@ public class BoardService {
 
     }
 
+    //게시글 수정 시 게시글 호출 용
+    public Optional<Content> viewOne(String id){
+
+        Optional<Content> content = contentRepository.findById(Long.parseLong(id));
+
+        return content;
+    }
+
+    public void updateCon(ContentDTO contentDTO){
+
+        Content con = contentRepository.findById(contentDTO.getId().toString());
+
+        con.updateContent(contentDTO);
+
+
+    }
     public List<Content> viewList(String boardId){
 
         List<Content> result = contentRepository.findByCboard(boardId);
@@ -65,6 +82,7 @@ public class BoardService {
     public List<Content> searchByUserName(String userName){
 
         List<UserInfo> uinfo = userRepository.findIdByUsername(userName);
+
         List<String> uidlist = new ArrayList<>();
         List<Content> result = new ArrayList<>();
 
