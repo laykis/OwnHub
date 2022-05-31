@@ -22,28 +22,42 @@ public class MessageService {
     //메시지 전송 메소드
     public void send(MessageDTO form){
 
-        //현재 시각 저장
-        String currentTime = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH-mm-ss"));
+        try{
 
-        //메시지 값 세팅
-        Message message = new Message.Builder()
-                .mcontent(form.getMcontent())
-                .mdate(currentTime)
-                .sender(form.getSender())
-                .receiver(form.getReceiver())
-                .status("0")
-                .build();
+            //현재 시각 저장
+            String currentTime = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH-mm-ss"));
 
-        //메시지 영속화
-        messageRepository.save(message);
+            //메시지 값 세팅
+            Message message = new Message.Builder()
+                    .mcontent(form.getMcontent())
+                    .mdate(currentTime)
+                    .sender(form.getSender())
+                    .receiver(form.getReceiver())
+                    .status("0")
+                    .build();
+
+            //메시지 영속화
+            messageRepository.save(message);
+
+        }catch (Exception e){
+            System.out.println(e);
+        }
 
     }
 
     //수신함 열람 용 메소드
     public List<Message> receiveView(String uid){
 
-        //요청 사용자 uid에 해당하는 메시지 호출
-        List<Message> message = messageRepository.findByReceiver(uid);
+        List<Message> message = new ArrayList<>();
+
+        try{
+
+            //요청 사용자 uid에 해당하는 메시지 호출
+            message = messageRepository.findByReceiver(uid);
+
+        }catch (Exception e){
+            System.out.println(e);
+        }
 
         return message;
 
@@ -52,8 +66,17 @@ public class MessageService {
     //송신함 열람 용 메소드
     public List<Message> sendView(String uid){
 
-        //요청 사용자 uid에 해당하는 메시지 호출
-        List<Message> message = messageRepository.findBySender(uid);
+
+        List<Message> message = new ArrayList<>();
+
+        try{
+
+            //요청 사용자 uid에 해당하는 메시지 호출
+            message = messageRepository.findBySender(uid);
+
+        }catch (Exception e){
+            System.out.println(e);
+        }
 
         return message;
     }
@@ -61,35 +84,48 @@ public class MessageService {
     //수신함 삭제 메소드
     public void recDelete(Long id){
 
-        //
-        Optional<Message> me = messageRepository.findById(id);
+        try{
 
-        Message message = me.orElseThrow(() -> new NoSuchElementException());
+            //
+            Optional<Message> me = messageRepository.findById(id);
+
+            Message message = me.orElseThrow(() -> new NoSuchElementException());
 
 
-        if(message.getStatus().equals("1")){
-            messageRepository.deleteById(id);
-        }else{
+            if(message.getStatus().equals("1")){
+                messageRepository.deleteById(id);
+            }else{
 
-            message.changeStatus("2");
+                message.changeStatus("2");
 
+            }
+
+        }catch (Exception e){
+            System.out.println(e);
         }
 
     }
 
     public void sendDelete(Long id) {
 
-        Optional<Message> me = messageRepository.findById(id);
+        try{
 
-        Message message = me.orElseThrow(() -> new NoSuchElementException());
+            Optional<Message> me = messageRepository.findById(id);
 
-        if (message.getStatus().equals("2")) {
-            messageRepository.deleteById(id);
-        } else {
+            Message message = me.orElseThrow(() -> new NoSuchElementException());
 
-            message.changeStatus("1");
+            if (message.getStatus().equals("2")) {
+                messageRepository.deleteById(id);
+            } else {
 
+                message.changeStatus("1");
+
+            }
+
+        }catch (Exception e){
+            System.out.println(e);
         }
+
     }
 
 }
