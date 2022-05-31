@@ -6,6 +6,9 @@ import Kim.OwnHub.repository.ScheduleRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class ScheduleService {
@@ -32,8 +35,21 @@ public class ScheduleService {
             System.out.println(e);
         }
 
+    }
 
+    public List<Schedule> viewSchedule(String uid){
 
+        List<Schedule> schedule = new ArrayList<>();
+
+        try{
+
+            schedule = scheduleRepository.findByCuid(uid);
+
+        }catch (Exception e){
+            System.out.println(e);
+        }
+
+        return schedule;
     }
 
 }
