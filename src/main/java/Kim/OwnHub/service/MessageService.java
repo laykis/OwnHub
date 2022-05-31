@@ -6,6 +6,7 @@ import Kim.OwnHub.entity.UserInfo;
 import Kim.OwnHub.repository.MessageRepository;
 import Kim.OwnHub.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
+import org.eclipse.jgit.api.Git;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
