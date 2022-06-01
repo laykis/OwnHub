@@ -1,11 +1,16 @@
 import React, {useEffect, useState} from "react";
 import axios from "axios";
+import Login from '@components/Login';
 
 
 
 function App() {
 
-    return;
+    return(
+        <div>
+            <Login />
+        </div>
+    );
 
 }
 
