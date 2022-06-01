@@ -1,11 +1,11 @@
 import React, {useEffect, useState} from "react";
 import axios from "axios";
 
-//userID, userPw로 보내지도록 해야함
+//userId, userPw로 보내지도록 해야함
 
 function Login() {
-    const [inputID, setInputID] = useState("")
-    const [inputPw, setInputPw] = useState("")
+    const [userId, setInputID] = useState("")
+    const [userPw, setInputPw] = useState("")
 
     // input data의 변화가 있을 때마다 value 값을 변경해서 useState해준다
     const handleInputId = (e) => {
@@ -23,7 +23,7 @@ function Login() {
 
     // 페이지 랜더링 후 가장 처음 호출되는 함수
     useEffect(()=> {
-        axios.get('/user_inform/login')
+        axios.get('/user_inform/login') // 이 부분 axios로 가져오는 걸로 바꿔주세요!!!!!!!!!!!!!!!!
         .then(res => console.log(res))
         .catch()
     },
@@ -35,12 +35,12 @@ function Login() {
         <div>
             <h2>Login</h2>
             <div>
-                <label htmlFor='input_id'>ID : </label>
-                <input type='text' name='input_id' value={inputId} onChange={handleInputId}/>
+                <label htmlFor='user_id'>ID : </label>
+                <input type='text' name='user_id' value={userId} onChange={handleInputId}/>
             </div>
             <div>
-                <label htmlFor='input_pw'>PW : </label>
-                <input type='password' name='input_pw' value={inputPw} onChange={handleInputPw}/>
+                <label htmlFor='user_pw'>PW : </label>
+                <input type='password' name='user_pw' value={userPw} onChange={handleInputPw}/>
             </div>
             <div>
                 <button type="button" onClick={onClickLogin}>Login</button>
