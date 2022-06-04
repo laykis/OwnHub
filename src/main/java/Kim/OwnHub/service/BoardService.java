@@ -13,6 +13,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -153,6 +154,7 @@ public class BoardService {
 
                 //i번째 해당하는 유저의 게시글 전부 리스트에 저장
                 List<Content> userlist = contentRepository.findByCuid(uidlist.get(i));
+
 
                 for(int j=0; j<userlist.size(); j++){
 

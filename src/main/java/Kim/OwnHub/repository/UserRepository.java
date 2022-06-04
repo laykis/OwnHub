@@ -18,6 +18,7 @@ public interface UserRepository extends JpaRepository<UserInfo, Long> {
     @Query("select u from UserInfo AS u where u.username = :username")
     List<UserInfo> findIdByUsername(@Param("username") String username);
 
+
     //유저 이름으로 유저 정보 반환
     List<UserInfo> findByUsername(String username);
 
