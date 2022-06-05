@@ -96,7 +96,7 @@ public class UserController {
                 //세팅된 데이터 영속화
                 userService.joining(userinfo);
 
-                result = "index";
+                result = "";
 
             } else {
 
