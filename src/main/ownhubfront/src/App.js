@@ -5,6 +5,9 @@ import axios from "axios";
 
 function App() {
 
+
+    axios.post("localhost:8080/user/loginpro", id)
+        .then()
     return;
 
 }
