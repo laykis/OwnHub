@@ -24,6 +24,7 @@ public class UserController {
     private final UserService userService;
 
     //로그인 처리용 포스트 매핑
+    //localhost:8080/user/loginpro
     @PostMapping("/loginpro")
     public String loginpro(UserDTO form, HttpServletRequest request) {
 
@@ -95,7 +96,7 @@ public class UserController {
                 //세팅된 데이터 영속화
                 userService.joining(userinfo);
 
-                result = "index";
+                result = "";
 
             } else {
 

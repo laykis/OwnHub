@@ -25,7 +25,7 @@ public class HomeController {
     @GetMapping("/")
     public String home() {
 
-        return "home";
+        return "";
     }
 
     //클릭 시 localhost:8080으로 돌아가는 홈버튼 처리용 포스트매핑
