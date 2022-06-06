@@ -6,11 +6,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-@Controller
+@RestController
 @RequiredArgsConstructor
 @RequestMapping("/home")
 public class HomeController {
@@ -21,7 +22,7 @@ public class HomeController {
     private final UserService userService;
 
     //localhost:8080/home URL 요청시 home.html view
-    @GetMapping("")
+    @GetMapping("/")
     public String home() {
 
         return "home";

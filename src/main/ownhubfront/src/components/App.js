@@ -1,15 +1,18 @@
-import React, {useEffect, useState} from "react";
-import axios from "axios";
-import Login from '@components/Login';
+
+import Login from 'Login';
+import { Route, BrowserRouter as Router } from "react-router-dom";
+import {render} from "react-dom";
+
 
 
 
 function App() {
 
     return(
-        <div>
-            <Login />
-        </div>
+        <Router>
+            <Route exact path="" component={Login} />
+        </Router>
+
     );
 
 }

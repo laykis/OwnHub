@@ -43,7 +43,7 @@ public class ScheduleService {
 
         try{
 
-            schedule = scheduleRepository.findByCuid(uid);
+            schedule = scheduleRepository.findBySuid(uid);
 
         }catch (Exception e){
             System.out.println(e);

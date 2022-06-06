@@ -4,6 +4,8 @@ import axios from "axios";
 //userId, userPw로 보내지도록 해야함
 
 function Login() {
+
+
     const [userId, setInputID] = useState("")
     const [userPw, setInputPw] = useState("")
 
@@ -23,7 +25,7 @@ function Login() {
 
     // 페이지 랜더링 후 가장 처음 호출되는 함수
     useEffect(()=> {
-        axios.get('/user_inform/login') // 이 부분 axios로 가져오는 걸로 바꿔주세요!!!!!!!!!!!!!!!!
+        axios.get("/user/login") // 이 부분 axios로 가져오는 걸로 바꿔주세요!!!!!!!!!!!!!!!!
         .then(res => console.log(res))
         .catch()
     },
