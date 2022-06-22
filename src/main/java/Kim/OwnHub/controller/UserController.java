@@ -5,7 +5,6 @@ import Kim.OwnHub.DTO.UserDTO;
 import Kim.OwnHub.entity.UserInfo;
 import Kim.OwnHub.service.UserService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
