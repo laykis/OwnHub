@@ -25,6 +25,8 @@ public class OwnGit {
         // create the directory
         try (Git git = Git.init().setDirectory(filePath).call()) {
             System.out.println("Having repository: " + git.getRepository().getDirectory());
+        }catch(GitAPIException e){
+            e.printStackTrace();
         }
 
     }
@@ -36,6 +38,7 @@ public class OwnGit {
         System.out.println(git.getRepository().getDirectory());
 
         return git;
+
     }
 
 }

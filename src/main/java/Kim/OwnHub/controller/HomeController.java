@@ -69,10 +69,10 @@ public class HomeController {
             result = "/board/list";
 
         } catch (Exception e) {
-            System.out.println(e);
-        } finally {
-            return result;
+            e.printStackTrace();
         }
+
+        return result;
     }
 
     @GetMapping("/userlist")
@@ -97,10 +97,10 @@ public class HomeController {
             result = "userlist";
 
         }catch(Exception e){
-            System.out.println(e);
-        }finally {
-            return result;
+            e.printStackTrace();
         }
+
+        return result;
     }
 
 

@@ -57,7 +57,7 @@ public class UserController {
                 result = "notfound";
             }
         }catch (Exception e){
-            System.out.println(e);
+            e.printStackTrace();
         }
 
         return result;
@@ -102,10 +102,9 @@ public class UserController {
                 result = "user/check";
             }
         }catch (Exception e){
-            System.out.println(e);
+            e.printStackTrace();
         }
-        finally {
-            return result;
-        }
+
+        return result;
     }
 }

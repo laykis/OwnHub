@@ -41,7 +41,7 @@ public class UserService {
             userDTO.setTeam(uinfo.getTeam());
 
         }catch (Exception e){
-            System.out.println(e);
+            e.printStackTrace();
         }
 
         //DTO를 반환
@@ -61,7 +61,7 @@ public class UserService {
             ulist = userRepository.findByUsername(username);
 
         }catch (Exception e){
-            System.out.println(e);
+            e.printStackTrace();
         }
 
         //반환
@@ -81,7 +81,7 @@ public class UserService {
             ulist = userRepository.findByTeam(team);
 
         }catch (Exception e){
-            System.out.println(e);
+            e.printStackTrace();
         }
 
         //반환
@@ -99,7 +99,7 @@ public class UserService {
             userRepository.save(userInfo);
 
         }catch (Exception e){
-            System.out.println(e);
+            e.printStackTrace();
         }
 
     }

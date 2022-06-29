@@ -41,7 +41,7 @@ public class MessageService {
             messageRepository.save(message);
 
         }catch (Exception e){
-            System.out.println(e);
+            e.printStackTrace();
         }
 
     }
@@ -57,7 +57,7 @@ public class MessageService {
             message = messageRepository.findByReceiver(uid);
 
         }catch (Exception e){
-            System.out.println(e);
+            e.printStackTrace();
         }
 
         return message;
@@ -76,7 +76,7 @@ public class MessageService {
             message = messageRepository.findBySender(uid);
 
         }catch (Exception e){
-            System.out.println(e);
+            e.printStackTrace();
         }
 
         return message;
@@ -102,7 +102,7 @@ public class MessageService {
             }
 
         }catch (Exception e){
-            System.out.println(e);
+            e.printStackTrace();
         }
 
     }
@@ -124,7 +124,7 @@ public class MessageService {
             }
 
         }catch (Exception e){
-            System.out.println(e);
+            e.printStackTrace();
         }
 
     }

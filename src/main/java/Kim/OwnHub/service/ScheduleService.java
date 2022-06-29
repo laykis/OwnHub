@@ -32,7 +32,7 @@ public class ScheduleService {
             scheduleRepository.save(schedule);
 
         }catch (Exception e){
-            System.out.println(e);
+            e.printStackTrace();
         }
 
     }
@@ -46,7 +46,7 @@ public class ScheduleService {
             schedule = scheduleRepository.findBySuid(uid);
 
         }catch (Exception e){
-            System.out.println(e);
+            e.printStackTrace();
         }
 
         return schedule;

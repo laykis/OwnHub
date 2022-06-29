@@ -47,7 +47,7 @@ public class BoardService {
             contentRepository.save(content);
 
         }catch (Exception e){
-            System.out.println(e);
+            e.printStackTrace();
         }
 
 
@@ -67,7 +67,7 @@ public class BoardService {
 
 
         }catch (Exception e){
-            System.out.println(e);
+            e.printStackTrace();
         }
 
         return content;
@@ -87,7 +87,7 @@ public class BoardService {
             content.updateContent(contentDTO);
 
         }catch (Exception e){
-            System.out.println(e);
+            e.printStackTrace();
         }
 
 
@@ -105,10 +105,8 @@ public class BoardService {
             result = contentRepository.findByCboard(boardId);
 
         }catch (Exception e){
-            System.out.println(e);
+            e.printStackTrace();
         }
-
-
 
         return result;
     }
@@ -123,10 +121,8 @@ public class BoardService {
             result = contentRepository.findByTitle(title);
 
         }catch (Exception e){
-            System.out.println(e);
+            e.printStackTrace();
         }
-
-
 
         return result;
     }
@@ -136,7 +132,7 @@ public class BoardService {
     public List<Content> searchByUserName(String userName){
 
         //데이터 처리용 리스트
-        List<UserInfo> uinfo = new ArrayList<>();
+        List<UserInfo> uinfo;
         List<String> uidlist = new ArrayList<>();
         List<Content> result = new ArrayList<>();
 
@@ -164,7 +160,7 @@ public class BoardService {
             }
 
         }catch (Exception e){
-            System.out.println(e);
+            e.printStackTrace();
         }
 
         return result;
