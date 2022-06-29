@@ -29,11 +29,13 @@ public class OwnGit {
 
     }
 
-    public void openRepo(String repoName) throws IOException {
+    public Git openRepo(String repoName) throws IOException {
 
         Git git = Git.open(new File("/Users/laykis/Desktop/gitTest/"+repoName));
 
         System.out.println(git.getRepository().getDirectory());
+
+        return git;
     }
 
 }

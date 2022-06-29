@@ -1,6 +1,8 @@
 package Kim.OwnHub.controller;
 
+import Kim.OwnHub.DTO.UserDTO;
 import Kim.OwnHub.git.OwnGit;
+import org.eclipse.jgit.api.Git;
 import org.eclipse.jgit.api.errors.GitAPIException;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -27,10 +29,13 @@ public class HelloController extends OwnGit {
     @GetMapping("/openRepo")
     public String openRepo() throws GitAPIException, IOException{
 
-        openRepo("testdir");
+        Git ogit = openRepo("testdir");
+        System.out.println(ogit.log());
 
         return "openSucsess";
     }
+
+
 
 }
 
