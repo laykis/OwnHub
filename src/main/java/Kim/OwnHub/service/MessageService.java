@@ -113,7 +113,7 @@ public class MessageService {
 
             Optional<Message> me = messageRepository.findById(id);
 
-            Message message = me.orElseThrow(() -> new NoSuchElementException());
+            Message message = me.orElseThrow(NoSuchElementException::new);
 
             if (message.getStatus().equals("2")) {
                 messageRepository.deleteById(id);

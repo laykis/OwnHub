@@ -1,5 +1,6 @@
 package Kim.OwnHub.git;
 
+import Kim.OwnHub.DTO.UserDTO;
 import org.apache.tomcat.util.http.fileupload.FileUtils;
 import org.eclipse.jgit.api.errors.GitAPIException;
 import org.eclipse.jgit.api.Git;
@@ -11,7 +12,10 @@ import java.io.IOException;
 
 public class OwnGit {
 
-    public void createNewRepo(String dirName) throws IOException, GitAPIException {
+    private static String userName = "";
+    private static String userEmail = "";
+
+    public void createNewRepo(String userName, String dirName) throws IOException, GitAPIException {
 
         // prepare a new folder
         File localPath = File.createTempFile("TestGitRepository", "",new File("/Users/laykis/Desktop/gitTest"));
@@ -20,7 +24,7 @@ public class OwnGit {
         }
         FileUtils.deleteDirectory(localPath);
 
-        File filePath = new File("/Users/laykis/Desktop/gitTest/"+dirName);
+        File filePath = new File("/Users/laykis/Desktop/gitTest/" + userName + "/" + dirName);
         filePath.mkdir();
         // create the directory
         try (Git git = Git.init().setDirectory(filePath).call()) {
@@ -31,14 +35,27 @@ public class OwnGit {
 
     }
 
-    public Git openRepo(String repoName) throws IOException {
+    public Git openRepo(String userName, String repoName) throws IOException {
 
-        Git git = Git.open(new File("/Users/laykis/Desktop/gitTest/"+repoName));
+        Git git = Git.open(new File("/Users/laykis/Desktop/gitTest/" + userName + "/"+repoName));
 
         System.out.println(git.getRepository().getDirectory());
 
         return git;
 
     }
+
+    public static void add(Git git, String filePattern) throws Exception{
+        git.add().addFilepattern(filePattern).call();
+    }
+
+    public static void commit(Git git, String msg) throws Exception{
+
+        git.commit()
+                .setAuthor(userName, userEmail)
+                .setMessage(msg)
+                .call();
+    }
+
 
 }

@@ -15,7 +15,6 @@ import java.util.Date;
 public class Message {
 
 
-
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "MESSAGE_ID")
     private Long id;

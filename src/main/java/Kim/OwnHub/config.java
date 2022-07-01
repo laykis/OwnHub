@@ -8,7 +8,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 public class config implements WebMvcConfigurer {
 
     private String connectPath = "/clonetest/**";
-    private String resourcePath = "file:///Users/laykis/Desktop/gitTest";
+    private String resourcePath = "file:///Users/laykis/Desktop/gitTest/";
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
