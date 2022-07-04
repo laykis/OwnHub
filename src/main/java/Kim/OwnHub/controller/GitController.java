@@ -26,16 +26,11 @@ public class GitController extends OwnGit {
     @GetMapping("/createRepo")
     public String CreateNewRepo(HttpServletRequest request) throws GitAPIException, IOException {
 
-
-
         HttpSession session = request.getSession();
         Long uid = (Long) session.getAttribute("uid");
 
         Optional<UserInfo> userInfo = userRepository.findById(uid);
         UserInfo user = userInfo.orElseThrow(NoSuchElementException::new);
-
-
-
 
         createNewRepo(user.getUserId(), "testdir");
 
