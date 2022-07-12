@@ -2,7 +2,7 @@ import './App.css';
 import Login from "./Login";
 import MainPage from './Main1';
 import {useEffect, useState} from "react";
-import { BrowserRouter, Route, Link, Router } from "react-router-dom";
+import {BrowserRouter, Route, Switch} from "react-router-dom";
 
 
 function App() {
@@ -19,21 +19,20 @@ function App() {
       setIsLogin(true)
       console.log('isLogin ?? :: ', isLogin)
     }
-  })
+    //eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
 
   return (
-    <div className="App">
-      <Router>
-        {/* {isLogin ? 
-          // Main 컴포넌트 호출 시 isLogin 이라는 props 값을 전달
-          <Main isLogin={isLogin} /> : 
-          <Login />
-        } */}
-        <Route path='/main1' componet={MainPage}/>
-        <Route path='/' component={Login}/>
-      </Router>
-    </div>
+      <BrowserRouter>
+        <div className="App">
+          <Switch>
+            <Route path={'/main1'} component={MainPage}/>
+            <Route path={'/'} component={Login}/>
+          </Switch>
+        </div>
+      </BrowserRouter>
+
   );
 }
 
