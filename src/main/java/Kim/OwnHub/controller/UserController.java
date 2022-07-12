@@ -45,6 +45,7 @@ public class UserController {
                     //세션 요청후 유저의 식별키 "uid"와 권한 "auth" 를 세션에 저장
                     HttpSession session = request.getSession();
                     session.setAttribute("uid", uinfo.getId());
+                    session.setAttribute("user_id", uinfo.getUserId());
                     session.setAttribute("auth", uinfo.getAuth());
                     session.setMaxInactiveInterval(1800);
 
