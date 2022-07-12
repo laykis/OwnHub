@@ -1,6 +1,7 @@
 package Kim.OwnHub.controller;
 
 
+import Kim.OwnHub.DTO.JsonDTO;
 import Kim.OwnHub.DTO.UserDTO;
 import Kim.OwnHub.entity.UserInfo;
 import Kim.OwnHub.service.UserService;
@@ -25,12 +26,12 @@ public class UserController {
     //로그인 처리용 포스트 매핑
     //localhost:8080/user/loginpro
     @PostMapping("/loginpro")
-    public String loginpro(UserDTO form, HttpServletRequest request) {
+    public JsonDTO loginpro(UserDTO form, HttpServletRequest request) {
 
 
-        //반환 값 저장용 변수
-        String result = "";
-
+        JsonDTO json = new JsonDTO();
+        System.out.println(form.getUserId());
+        System.out.println(form.getUserPw());
         try {
             //폼에서 받아온 유저아이디가 DB에 존재하는지 검사
             if (userService.getUserByUserId(form.getUserId()).getUserId() != null) {
@@ -47,20 +48,24 @@ public class UserController {
                     session.setAttribute("auth", uinfo.getAuth());
                     session.setMaxInactiveInterval(1800);
 
-                    result = "redirect:/home";
+                    json.setUserId(uinfo.getUserId());
+                    json.setMsg("undefined");
+
                 } else {
 
-                    result = "fail";
+                    json.setUserId(null);
+                    json.setMsg("입력하신 비밀번호 가 일치하지 않습니다.");
                 }
             } else {
 
-                result = "notfound";
+                json.setUserId("undefined");
+                json.setMsg("입력하신 Id가 존재하지 않습니다.");
             }
         }catch (Exception e){
             e.printStackTrace();
         }
 
-        return result;
+        return json;
     }
 
     //localhost:8080/user/join 회원가입 페이지
