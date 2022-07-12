@@ -1,7 +1,9 @@
-
 import './App.css';
 import Login from "./Login";
+import MainPage from './Main1';
 import {useEffect, useState} from "react";
+import { BrowserRouter, Route, Link, Router } from "react-router-dom";
+
 
 function App() {
   // 로그인 상태 관리
@@ -18,13 +20,19 @@ function App() {
       console.log('isLogin ?? :: ', isLogin)
     }
   })
+
+
   return (
     <div className="App">
-      {isLogin ? 
-      	// Main 컴포넌트 호출 시 isLogin 이라는 props 값을 전달
-        <Main isLogin={isLogin} /> : 
-        <Login />
-      }
+      <Router>
+        {/* {isLogin ? 
+          // Main 컴포넌트 호출 시 isLogin 이라는 props 값을 전달
+          <Main isLogin={isLogin} /> : 
+          <Login />
+        } */}
+        <Route path='/main1' componet={MainPage}/>
+        <Route path='/' component={Login}/>
+      </Router>
     </div>
   );
 }
