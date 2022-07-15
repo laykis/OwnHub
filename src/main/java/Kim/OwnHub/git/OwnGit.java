@@ -26,11 +26,11 @@ public class OwnGit {
 
         FileUtils.deleteDirectory(localPath);
 
-        File filePath = new File("/Users/laykis/Desktop/gitTest/" + userName + "/" + dirName);
+        File filePath = new File("/Users/laykis/Desktop/gitTest/" + userName + "/" + dirName + ".git");
         filePath.mkdir();
 
         // create the directory
-        try (Git git = Git.init().setDirectory(filePath).call()) {
+        try (Git git = Git.init().setBare(true).setDirectory(filePath).call()) {
 
             System.out.println("Having repository: " + git.getRepository().getDirectory());
 

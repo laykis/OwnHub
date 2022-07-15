@@ -22,19 +22,20 @@ public class GitController extends OwnGit {
 
     private UserRepository userRepository;
 
-
     @GetMapping("/createRepo")
-    public String CreateNewRepo(HttpServletRequest request) throws GitAPIException, IOException {
+    public String CreateNewRepo(HttpServletRequest request, String repoName) throws GitAPIException, IOException {
 
-//        HttpSession session = request.getSession();
-//        Long uid = (Long) session.getAttribute("uid");
+        HttpSession session = request.getSession();
+        Long uid = (Long) session.getAttribute("uid");
 
-//        Optional<UserInfo> userInfo = userRepository.findById(uid);
-//        UserInfo user = userInfo.orElseThrow(NoSuchElementException::new);
+        Optional<UserInfo> userInfo = userRepository.findById(uid);
+        UserInfo user = userInfo.orElseThrow(NoSuchElementException::new);
 
-        createNewRepo("4thOIDC", "testdir");
 
-        return "4thOIDC Repository 생성 성공!";
+        createNewRepo(user.getUserId(), repoName);
+//        createNewRepo("laykis", "laytest");
+
+        return repoName + "Repository 생성 성공!";
     }
 
     @GetMapping("/openRepo")
