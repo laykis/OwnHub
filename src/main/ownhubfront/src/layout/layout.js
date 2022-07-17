@@ -6,11 +6,11 @@ import "./layout.css"
 const Layout = () => {
     return (
         <div className='layout'>
-            <Header />
+            {/* <Header /> */}
             <main>
                 <h2>전체적인 레이아웃</h2>
             </main>
-            <Footer />
+            {/* <Footer /> */}
         </div>
     )
 }
