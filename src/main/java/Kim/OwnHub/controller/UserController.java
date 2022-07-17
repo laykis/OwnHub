@@ -30,8 +30,7 @@ public class UserController {
 
 
         JsonDTO json = new JsonDTO();
-        System.out.println(form.getUserId());
-        System.out.println(form.getUserPw());
+
         try {
             //폼에서 받아온 유저아이디가 DB에 존재하는지 검사
             if (userService.getUserByUserId(form.getUserId()).getUserId() != null) {
