@@ -24,15 +24,16 @@ function App() {
 
 
   return (
-      <BrowserRouter>
+    <Layout>
+      {/* <BrowserRouter> */}
         <div className="App">
-          <Switch>
+          <BrowserRouter>
             <Route path={'/main1'} component={MainPage}/>
             <Route path={'/'} component={Login}/>
-          </Switch>
+          </BrowserRouter>
         </div>
-      </BrowserRouter>
-
+      {/* </BrowserRouter> */}
+    </Layout>
   );
 }
 
