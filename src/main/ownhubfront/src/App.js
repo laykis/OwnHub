@@ -1,6 +1,7 @@
 import './App.css';
 import Login from "./Login";
 import MainPage from './Main1';
+import Layout from './layout/layout';
 import {useEffect, useState} from "react";
 import {BrowserRouter, Route, Switch} from "react-router-dom";
 
