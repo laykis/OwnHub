@@ -9,7 +9,18 @@
 }
 
 
-.logo_title {
-    display: block;
-    
+#logo_title {
+    float: left;
+    align-items: center;
+    padding: 15px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#login {
+    float: right;
+    align-items: center;
+    padding: 15px;
+    font-size: 20px;
+    font-weight: bold;
 }

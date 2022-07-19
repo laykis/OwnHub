@@ -43,3 +43,23 @@
     transform: rotate(360deg);
   }
 }
+
+/*Login*/
+.wrap-login{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 500px;
+  padding: 10px;
+}
+
+.input-box{
+  width: 250px;
+  align-items: center;
+  text-align: center;
+}
+
+.login-form{
+  width: 300px;
+}

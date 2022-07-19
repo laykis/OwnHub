@@ -3,5 +3,10 @@
     margin-top: auto;
     position: relative;
     transform: translateY(100%);
-    background-color: lightgray;
+    background: #343a40;
+    color : #fff;
+}
+
+.main-foot{
+    text-align: center;
 }

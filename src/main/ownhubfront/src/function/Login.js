@@ -1,5 +1,7 @@
 import React, {useEffect, useState} from "react";
 import axios from "axios";
+import "../App.css";
+
 
 //userId, userPw로 보내지도록 해야함
 function Login() {
@@ -61,6 +63,30 @@ function Login() {
 
     return(
         <div>
+            <body>
+                <div class="wrap-login">
+                    <section class="login-section">
+                        <h1 class="logo">Ownhub</h1>
+                        <form class="login-form">
+                            <div class="input-box">
+                                <input id="inputId" type="text" placeholder="전화번호, 사용자 이름 또는 이메일" />
+                            </div>
+                            <div class="input-box">
+                                <input id="inputPw" type="password" placeholder="비밀번호" />
+                            </div>
+                            <button type='button' id="loginBtn" class="btn primary" disabled>로그인</button>
+                            <div class="form-end">
+                                <a class="inline-link" href="$">비밀번호를 잊으셨나요?</a>
+                            </div>
+                        </form>
+                    </section>
+                </div>
+            </body>
+        </div>
+
+    )
+        {/*
+        <div>
             <h2>Login</h2>
             <div>
                 <label htmlFor='userId'>ID : </label>
@@ -73,8 +99,7 @@ function Login() {
             <div>
                 <button type="button" onClick={onClickLogin}>Login</button>
             </div>
-        </div>
-    )
+        </div>*/}
 }
 
 export default Login;
