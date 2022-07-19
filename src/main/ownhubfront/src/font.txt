@@ -1,0 +1,15 @@
+글씨체 
+<link>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@200;400;500;600;700&family=IBM+Plex+Sans:wght@100;200;300;500;600;700&display=swap" rel="stylesheet">
+
+@import 
+<style>
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@200;400;500;600;700&family=IBM+Plex+Sans:wght@100;200;300;500;600;700&display=swap');
+</style>
+
+
+css 호출
+font-family: 'IBM Plex Sans', sans-serif;
+font-family: 'IBM Plex Sans KR', sans-serif;

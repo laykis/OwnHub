@@ -28,16 +28,15 @@ function App() {
   return (
     <>
       <Header />
-      {/* <Layout> */}
       <BrowserRouter>
-        <div id="center">
+        <div>
           <Switch>
             <Route path={"/main1"} component={MainPage} />
-            <Route path={"/"} component={Login} />
+            <Route path={"/login"} component={Login} />
+            <Route path={"/"} component={Layout}/>
           </Switch>
         </div>
       </BrowserRouter>
-      {/* </Layout> */}
       <Footer />
     </>
   );
