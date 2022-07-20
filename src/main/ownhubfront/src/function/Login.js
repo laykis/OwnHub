@@ -66,18 +66,15 @@ function Login() {
             <body>
                 <div class="wrap-login">
                     <section class="login-section">
-                        <h1 class="logo">Ownhub</h1>
+                        <h1 class="logo">Ownhub Login</h1>
                         <form class="login-form">
                             <div class="input-box">
-                                <input id="inputId" type="text" placeholder="전화번호, 사용자 이름 또는 이메일" />
+                                <input id="inputId" type="text" name='userId' value={userId} onChange={handleUserId} placeholder="전화번호, 사용자 이름 또는 이메일" />
+                                <input id="inputPw" type="password" name='userPw' value={userPw} onChange={handleUserPw} placeholder="비밀번호" />
                             </div>
-                            <div class="input-box">
-                                <input id="inputPw" type="password" placeholder="비밀번호" />
-                            </div>
-                            <button type='button' id="loginBtn" class="btn primary" disabled>로그인</button>
-                            <div class="form-end">
-                                <a class="inline-link" href="$">비밀번호를 잊으셨나요?</a>
-                            </div>
+                            <a href="/main1"><button type='button' id="loginBtn" onClick={onClickLogin} class="btn primary">로그인</button></a>
+                            <br/>
+                            <a class="form-end" href="$">비밀번호를 잊으셨나요?</a>
                         </form>
                     </section>
                 </div>
@@ -85,21 +82,6 @@ function Login() {
         </div>
 
     )
-        {/*
-        <div>
-            <h2>Login</h2>
-            <div>
-                <label htmlFor='userId'>ID : </label>
-                <input type='text' name='userId' value={userId} onChange={handleUserId}/>
-            </div>
-            <div>
-                <label htmlFor='userPw'>PW : </label>
-                <input type='password' name='userPw' value={userPw} onChange={handleUserPw}/>
-            </div>
-            <div>
-                <button type="button" onClick={onClickLogin}>Login</button>
-            </div>
-        </div>*/}
 }
 
 export default Login;

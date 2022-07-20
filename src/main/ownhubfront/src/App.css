@@ -44,6 +44,14 @@
   }
 }
 
+a {
+  text-decoration-line: none;
+}
+a:link, a:visited{
+  color:black;
+}
+
+
 /*Login*/
 .wrap-login{
   display: flex;
@@ -55,11 +63,33 @@
 }
 
 .input-box{
-  width: 250px;
+  width: 300px;
   align-items: center;
   text-align: center;
 }
 
 .login-form{
   width: 300px;
+}
+
+button {
+  border: none;
+  border-radius: 5px;
+  width: 250px;
+  padding: 12px 0;
+  margin: 5px;
+  color: #fff;
+  font-size: 15px;
+  background-color: skyblue;
+}
+
+
+.login-form input {
+  width: 250px;
+  height: 45px;
+  padding: 0 15px;
+  margin: 2px;
+  border-radius: 5px;
+  border: 0.5px solid rgba(0, 0, 0, 0.3);
+  justify-content: center;
 }
