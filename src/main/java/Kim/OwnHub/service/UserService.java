@@ -32,13 +32,7 @@ public class UserService {
 
 
             //엔티티 "UserInfo"의 정보를 DTO객체에 세팅
-            userDTO.setId(uinfo.getId());
-            userDTO.setUserId(uinfo.getUserId());
-            userDTO.setUserPw(uinfo.getUserPw());
-            userDTO.setEmail(uinfo.getEmail());
-            userDTO.setRole(uinfo.getRole());
-            userDTO.setAuth(uinfo.getAuth());
-            userDTO.setTeam(uinfo.getTeam());
+            userDTO.convert(uinfo);
 
         }catch (Exception e){
             e.printStackTrace();

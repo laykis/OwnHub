@@ -1,7 +1,7 @@
 package Kim.OwnHub.controller;
 
-import Kim.OwnHub.DTO.UserDTO;
 import Kim.OwnHub.entity.UserInfo;
+import Kim.OwnHub.git.Controller;
 import Kim.OwnHub.git.OwnGit;
 import Kim.OwnHub.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -18,21 +18,21 @@ import java.util.Optional;
 
 @RestController
 @RequiredArgsConstructor
-public class GitController extends OwnGit {
+public class GitController extends Controller {
 
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
+    private final OwnGit ownGit;
 
     @GetMapping("/createRepo")
     public String CreateNewRepo(HttpServletRequest request, String repoName) throws GitAPIException, IOException {
 
-        HttpSession session = request.getSession();
-        Long uid = (Long) session.getAttribute("uid");
+        String uid = getSession(request, "uid");
 
-        Optional<UserInfo> userInfo = userRepository.findById(uid);
+        Optional<UserInfo> userInfo = userRepository.findById(Long.parseLong(uid));
         UserInfo user = userInfo.orElseThrow(NoSuchElementException::new);
 
 
-        createNewRepo(user.getUserId(), repoName);
+        ownGit.createNewRepo(user.getUserId(), repoName);
 //        createNewRepo("laykis", "laytest");
 
         return repoName + "Repository 생성 성공!";
@@ -42,14 +42,13 @@ public class GitController extends OwnGit {
     public String openRepo(HttpServletRequest request) throws GitAPIException, IOException{
 
 
-        HttpSession session = request.getSession();
-        Long uid = (Long) session.getAttribute("uid");
+        String uid = getSession(request, "uid");
 
-        Optional<UserInfo> userInfo = userRepository.findById(uid);
+        Optional<UserInfo> userInfo = userRepository.findById(Long.parseLong(uid));
         UserInfo user = userInfo.orElseThrow(NoSuchElementException::new);
 
 
-        Git ogit = openRepo(user.getUserId(), "testdir");
+        Git ogit = ownGit.openRepo(user.getUserId(), "testdir");
         System.out.println(ogit.log());
 
         return "openSucsess";

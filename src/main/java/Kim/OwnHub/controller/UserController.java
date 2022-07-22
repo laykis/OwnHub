@@ -4,6 +4,7 @@ package Kim.OwnHub.controller;
 import Kim.OwnHub.DTO.JsonDTO;
 import Kim.OwnHub.DTO.UserDTO;
 import Kim.OwnHub.entity.UserInfo;
+import Kim.OwnHub.git.Controller;
 import Kim.OwnHub.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,7 +18,7 @@ import javax.servlet.http.HttpSession;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/user")
-public class UserController {
+public class UserController extends Controller {
 
     //의존성 주입(DI, Dependency Injection)
     private final UserService userService;
@@ -42,11 +43,11 @@ public class UserController {
                     UserDTO uinfo = userService.getUserByUserId(form.getUserId());
 
                     //세션 요청후 유저의 식별키 "uid"와 권한 "auth" 를 세션에 저장
-                    HttpSession session = request.getSession();
-                    session.setAttribute("uid", uinfo.getId());
-                    session.setAttribute("user_id", uinfo.getUserId());
-                    session.setAttribute("auth", uinfo.getAuth());
-                    session.setMaxInactiveInterval(1800);
+
+                    setSession(request,1800,"uid", uinfo.getId().toString());
+                    setSession(request, 1800, "user_id", uinfo.getUserId());
+                    setSession(request,1800,"auth", uinfo.getAuth());
+
 
                     json.setUserId(uinfo.getUserId());
                     json.setMsg("undefined");

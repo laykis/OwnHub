@@ -2,14 +2,17 @@ package Kim.OwnHub.git;
 
 import Kim.OwnHub.DTO.UserDTO;
 import org.apache.tomcat.util.http.fileupload.FileUtils;
+import org.eclipse.jgit.api.PullCommand;
 import org.eclipse.jgit.api.errors.GitAPIException;
 import org.eclipse.jgit.api.Git;
 import org.eclipse.jgit.lib.Repository;
 import org.eclipse.jgit.storage.file.FileRepositoryBuilder;
+import org.springframework.stereotype.Component;
 
 import java.io.File;
 import java.io.IOException;
 
+@Component
 public class OwnGit {
 
 
@@ -44,7 +47,7 @@ public class OwnGit {
 
     public Git openRepo(String userName, String repoName) throws IOException {
 
-        Git git = Git.open(new File("/Users/laykis/Desktop/gitTest/" + userName + "/"+repoName));
+        Git git = Git.open(new File("/Users/laykis/Desktop/gitTest/" + userName + "/" + repoName + ".git"));
 
         System.out.println(git.getRepository().getDirectory());
 
@@ -55,6 +58,33 @@ public class OwnGit {
     public static void add(Git git, String filePattern) throws Exception{
         git.add().addFilepattern(filePattern).call();
     }
+
+
+    public static void rm(Git git, String filePattern) throws Exception {
+
+        git.rm().addFilepattern(filePattern).call();
+
+    }
+
+
+    public static void commit(Git git, UserDTO user, String msg) throws Exception {
+
+        // Now, we do the commit with a message
+        git.commit()//
+                .setAuthor(user.getUsername(), user.getEmail())//
+                .setMessage(msg)//
+                .call();
+
+    }
+
+
+    public static void pull(Git git) throws Exception {
+
+        PullCommand pull = git.pull();
+        pull.call();
+
+    }
+
 
 
 

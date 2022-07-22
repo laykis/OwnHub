@@ -1,5 +1,6 @@
 package Kim.OwnHub.controller;
 
+import Kim.OwnHub.git.Controller;
 import Kim.OwnHub.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,7 +14,7 @@ import javax.servlet.http.HttpSession;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/home")
-public class HomeController {
+public class HomeController extends Controller {
 
     //localhost:8080/home 페이지에서 들어오는 요청 처리용 컨트롤러
 
@@ -55,8 +56,7 @@ public class HomeController {
 
         try {
             //게시판 진입 시 세션 검사
-            HttpSession session = request.getSession(false);
-            String userAuth = session.getAttribute("auth").toString();
+            String userAuth = getSession(request, "auth");
 
             //요구 권한보다 낮으면 홈으로 redirect
             if (Integer.parseInt(userAuth) < 2) {
@@ -84,8 +84,7 @@ public class HomeController {
         try{
 
             //사원조회 탭 진입 시 세션 검사
-            HttpSession session = request.getSession(false);
-            String userAuth = session.getAttribute("auth").toString();
+            String userAuth = getSession(request, "auth");
 
             //요구 권한이 낮으면 홈으로 redirect
             if(Integer.parseInt(userAuth) < 2){
