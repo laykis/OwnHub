@@ -29,7 +29,7 @@ const Layout = () => {
                 </p>
             </div>
             <div class="column-right">   
-                <img id="img_1_intro" src="src\main\ownhubfront\img\img_1_intro.png"></img>
+                <img id="img_1_intro" src={require("./img/img_1_intro.png")}></img>
             </div>
         </div>
     )
