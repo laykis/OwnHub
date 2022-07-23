@@ -72,7 +72,7 @@ function Login() {
                                 <input id="inputId" type="text" name='userId' value={userId} onChange={handleUserId} placeholder="전화번호, 사용자 이름 또는 이메일" />
                                 <input id="inputPw" type="password" name='userPw' value={userPw} onChange={handleUserPw} placeholder="비밀번호" />
                             </div>
-                            <a href="/main1"><button type='button' id="loginBtn" onClick={onClickLogin} class="btn primary">로그인</button></a>
+                            <button type='button' id="loginBtn" onClick={onClickLogin} class="btn primary">로그인</button>
                             <br/>
                             <a class="form-end" href="$">비밀번호를 잊으셨나요?</a>
                         </form>
