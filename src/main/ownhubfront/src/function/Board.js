@@ -65,5 +65,5 @@ function board() {
         </div>
     )
 
-
 }
+export default board;
