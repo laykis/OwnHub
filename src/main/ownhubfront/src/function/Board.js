@@ -2,8 +2,7 @@ import React, {useEffect, useState} from "react";
 import axios from "axios";
 import "../App.css";
 
-function board() {
-
+function Board() {
 
     const [title, setTitle] = useState("")
     const [content, setContent] = useState("")
@@ -40,7 +39,7 @@ function board() {
     }
 
     useEffect(()=> {
-            axios.get("/main/board")
+            axios.get("/home/board")
                 .then(res => console.log(res))
                 .catch()
         },[]
@@ -66,4 +65,4 @@ function board() {
     )
 
 }
-export default board;
+export default Board;

@@ -13,7 +13,6 @@ import javax.servlet.http.HttpSession;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/home")
 public class HomeController extends Controller {
 
     //localhost:8080/home 페이지에서 들어오는 요청 처리용 컨트롤러
@@ -47,33 +46,33 @@ public class HomeController extends Controller {
         return "redirect:/";
     }
 
-    //게시판 클릭 시 localhost:8080/home/board로 이동
-    @GetMapping("/board")
-    public String board(HttpServletRequest request) {
-
-        //결과 값 반환용 변수
-        String result = "";
-
-        try {
-            //게시판 진입 시 세션 검사
-            String userAuth = getSession(request, "auth");
-
-            //요구 권한보다 낮으면 홈으로 redirect
-            if (Integer.parseInt(userAuth) < 2) {
-
-                System.out.println("권한이 없습니다.");
-                result = "redirect:/home";
-
-            }
-
-            result = "/board/list";
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        return result;
-    }
+//    //게시판 클릭 시 localhost:8080/home/board로 이동
+//    @GetMapping("/board")
+//    public String board(HttpServletRequest request) {
+//
+//        //결과 값 반환용 변수
+//        String result = "";
+//
+//        try {
+//            //게시판 진입 시 세션 검사
+//            String userAuth = getSession(request, "auth");
+//
+//            //요구 권한보다 낮으면 홈으로 redirect
+//            if (Integer.parseInt(userAuth) < 2) {
+//
+//                System.out.println("권한이 없습니다.");
+//                result = "redirect:/home";
+//
+//            }
+//
+//            result = "/board/list";
+//
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//
+//        return result;
+//    }
 
     @GetMapping("/userlist")
     public String userlist(HttpServletRequest request){

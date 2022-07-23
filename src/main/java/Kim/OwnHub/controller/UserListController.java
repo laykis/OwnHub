@@ -14,7 +14,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Controller
-@RequestMapping("/home/userlist")
 @RequiredArgsConstructor
 public class UserListController {
 

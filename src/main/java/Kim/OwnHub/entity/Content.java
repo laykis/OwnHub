@@ -7,7 +7,9 @@ import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Optional;
 
 @Entity
@@ -46,6 +48,35 @@ public class Content {
         this.title = contentDTO.getTitle();
         this.content = contentDTO.getContent();
         this.wdate = contentDTO.getWdate();
+    }
+
+    public ContentDTO convert(Content content){
+        ContentDTO result = new ContentDTO();
+
+        result.setId(content.getId());
+        result.setContent(content.getContent());
+        result.setTitle(content.getTitle());
+
+        return result;
+    }
+
+    public List<ContentDTO> listConvert(List<Content> contents){
+
+        List<ContentDTO> result = new ArrayList<>();
+
+
+        for(int i = 0; i < contents.size(); i++){
+
+            this.id = contents.get(i).getId();
+            this.title = contents.get(i).getTitle();
+            this.content = contents.get(i).getContent();
+
+            ContentDTO cv = convert(this);
+            result.add(i, cv);
+
+        }
+
+        return result;
     }
 
 
