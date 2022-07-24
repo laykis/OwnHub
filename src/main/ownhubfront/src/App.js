@@ -35,9 +35,10 @@ function App() {
           <Switch>
             <Route path={"/main1"} component={MainPage} />
             <Route path={"/login"} component={Login} />
-            <Route path={"/"} component={Layout}/>
             <Route path={"/board"} component={Board}/>
             <Route path={"/content"} component={BoardList}/>
+            <Route path={"/"} component={Layout}/>
+
           </Switch>
         </div>
       </BrowserRouter>

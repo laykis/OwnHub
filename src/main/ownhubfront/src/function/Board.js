@@ -38,14 +38,6 @@ function Board() {
 
     }
 
-    useEffect(()=> {
-            axios.get("/home/board")
-                .then(res => console.log(res))
-                .catch()
-        },[]
-    )
-
-
 
     return (
         <div>

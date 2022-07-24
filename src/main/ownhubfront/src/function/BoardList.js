@@ -4,11 +4,11 @@ import "../App.css";
 
 function BoardList() {
 
-    let contentList
+    let contentList;
 
     useEffect(()=> {
             axios.get("/home/board/content")
-                .then(res => console.log(res))
+                .then(res => contentList === res)
                 .catch()
         },[]
     )
