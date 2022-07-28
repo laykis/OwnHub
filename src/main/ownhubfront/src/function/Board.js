@@ -45,6 +45,11 @@ function Board() {
                 <div>
                     <form>
                         <div>
+                            <select id="cboard">
+                                <option value="free">자유게시판</option>
+                                <option value="team">부서게시판</option>
+                                <option value="notice">공지사항</option>
+                            </select>
                             <input id = "title" type="text" name="title" value={title} onChange={handleTitle} placeholder="제목을 입력하세요." />
                             <input id = "content" type="text" name="content" value={content} onChange={handleContent} placeholder="내용을 입력하세요." />
                         </div>

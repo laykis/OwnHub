@@ -16,7 +16,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-
 @RequiredArgsConstructor
 public class BoardController {
 
@@ -28,10 +27,12 @@ public class BoardController {
     @GetMapping("/home/board/content")
     public List<ContentDTO> viewList(){
 
+        System.out.println("pass");
         Content content = new Content();
 
         List<ContentDTO> result = content.listConvert(boardService.viewList("0"));
 
+        System.out.println(result.get(0));
 
         try{
 

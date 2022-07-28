@@ -56,6 +56,10 @@ public class Content {
         result.setId(content.getId());
         result.setContent(content.getContent());
         result.setTitle(content.getTitle());
+        result.setWdate(content.getWdate());
+        result.setCteam(content.getCteam());
+        result.setCboard(content.getCboard());
+        result.setCuid(content.getCuid());
 
         return result;
     }
@@ -70,6 +74,10 @@ public class Content {
             this.id = contents.get(i).getId();
             this.title = contents.get(i).getTitle();
             this.content = contents.get(i).getContent();
+            this.wdate = contents.get(i).getWdate();
+            this.cteam = contents.get(i).getCteam();
+            this.cboard = contents.get(i).getCboard();
+            this.cuid = contents.get(i).getCuid();
 
             ContentDTO cv = convert(this);
             result.add(i, cv);
