@@ -10,15 +10,7 @@ function BoardList() {
         setContentList(e.target.value)
     }
 
-    const printContentList = () => {
-        return(
-            <div>
-                <table>
-                    <tr>{contentList[0].title}</tr>
-                </table>
-            </div>
-        );
-    }
+
 
     useEffect(()=> {
             axios.get("/home/board/content")
@@ -27,9 +19,19 @@ function BoardList() {
         },[]
     )
 
+    const printContentList = () => {
+        return(
+            <div>
+                {contentList.map((content) =>{
+                    return <div> title = {content.title} </div>
+                })}
+            </div>
+        );
+    };
+
     return(
         <div>
-            {printContentList()}
+            {printContentList}
         </div>
 
     )
