@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@200;400;500;600;700&family=IBM+Plex+Sans:wght@100;200;300;500;600;700&display=swap');
+
+button {
+    border: none;
+    border-radius: 5px;
+    width: 250px;
+    padding: 12px 0;
+    margin: 5px;
+    color: #fff;
+    font-size: 15px;
+    background-color: skyblue;
+}
+
+#writing {
+    width: 80%;
+    height: 100%;
+}
+
+#cboard {
+    font-family: 'IBM Plex Sans KR', sans-serif;
+}
+
+
+input {
+    font-family: 'IBM Plex Sans KR', sans-serif;
+}
+
+#title {
+    font-family: 'IBM Plex Sans KR', sans-serif;
+
+}
+
+#content {
+    font-family: 'IBM Plex Sans KR', sans-serif;
+}
