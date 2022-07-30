@@ -10,6 +10,7 @@ import Board from "./function/Board";
 import BoardList from "./function/BoardList"
 import Login from "./function/Login";
 import MainPage from "./function/Main1";
+import Sidebar from "./layout/sidebar_board";
 
 function App() {
   // 로그인 상태 관리
