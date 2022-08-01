@@ -12,8 +12,13 @@ button {
     background-color: skyblue;
 }
 
-input {
+input, h2 {
     font-family: 'IBM Plex Sans KR', sans-serif;
+}
+
+#body {
+    align-items: center;
+    padding: 20px 10%;
 }
 
 /* Board.js */
@@ -52,3 +57,6 @@ input {
 #card_section {
     position: relative;
 }
+
+
+/* Work_day.js */
