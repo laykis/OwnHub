@@ -4,7 +4,7 @@ import "../each_page.css";
 import Sidebar from "../layout/sidebar_git";
 
 
-const Git_main = () => {
+const Git_my = () => {
 
     return (
         <div>
@@ -13,15 +13,15 @@ const Git_main = () => {
                 <input id="search_input" name="keyword" placeholder="Search repository"></input> 
                 <button>search</button>
             </form>
-            <h2>Repository 둘러보기</h2>
-            <div id='card_section'>
-                <p>Group repository</p>
-                <p>Dohyun's Repository</p>
-                <p>Gayoung's Repository</p>
-                <p>Yunji's Repository</p>
+            <div>
+                <h2 id='page_title'>나의 Git</h2>
+                <div id='button_section'>
+                    <button>Repository 생성</button>
+                    <button>Commit</button>
+                </div>
             </div>
         </div>
     )
 }
 
-export default Git_main
+export default Git_my

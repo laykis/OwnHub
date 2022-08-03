@@ -11,9 +11,9 @@ const Header = () => {
         <header className='header'>
             <p id='logo_title'><a href='/'>💻 OwnHub</a></p>
             <div id="menu">
-                <MenuItem><a href='/repository'>Git</a></MenuItem>
+                <MenuItem><a href='/git/mygit'>Git</a></MenuItem>
                 <MenuItem><a href='/members'>사원관리</a></MenuItem>
-                <MenuItem><a href='/working/vacation'>근태관리</a></MenuItem>
+                <MenuItem><a href='/working/monthly'>근태관리</a></MenuItem>
                 <MenuItem><a href='/content/notice'>게시판</a></MenuItem>
             </div>
             <p id="login"><a href='/login'>Login </a></p>

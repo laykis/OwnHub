@@ -32,8 +32,9 @@ function BoardList() {
     return(
         <div>
             <Sidebar/>
-            <p>Board</p>
             {printContentList}
+            
+            <p>Board</p>
         </div>
 
     )

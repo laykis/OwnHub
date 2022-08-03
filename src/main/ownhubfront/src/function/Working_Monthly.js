@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Calendar from 'react-calendar';
-import 'react-calendar/dist/Calendar.css'; 
+import "../each_page.css";
+
 import Sidebar from '../layout/sidebar_working';
 
 function Workday() {

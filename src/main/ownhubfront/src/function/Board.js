@@ -40,9 +40,9 @@ function Board() {
 
 
     return (
-        <div id="writing">
-            <body>
-                <Sidebar/>
+        <div>
+            <Sidebar/>
+            <body id="writing">
                 <div>
                     <form>
                         <div>
