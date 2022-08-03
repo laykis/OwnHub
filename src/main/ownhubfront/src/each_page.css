@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@200;400;500;600;700&family=IBM+Plex+Sans:wght@100;200;300;500;600;700&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=IBM+Plex+Sans:wght@100;200;300;500;600;700&family=Nanum+Myeongjo:wght@400;700;800&display=swap');
 /* General Use */
 button {
     border: none;
@@ -13,7 +12,7 @@ button {
 }
 
 input, h2 {
-    font-family: 'IBM Plex Sans KR', sans-serif;
+    font-family: 'Nanum Myeongjo', serif;
 }
 
 #body {
@@ -31,14 +30,15 @@ input, h2 {
 }
 
 #cboard {
-    font-family: 'IBM Plex Sans KR', sans-serif;
+    font-family: 'Nanum Myeongjo', serif;
     text-align: left;
-    height: 30px;
+    height: 54px;
+    width: 90px;
 }
 
 
 #writing_title {
-    font-family: 'IBM Plex Sans KR', sans-serif;
+    font-family: 'Nanum Myeongjo', serif;
     margin: 10px;
     width: 600px;
     height: 30px;
@@ -47,12 +47,27 @@ input, h2 {
 }
 
 #writing_content {
-    font-family: 'IBM Plex Sans KR', sans-serif;
+    font-family: 'Nanum Myeongjo', serif;
     padding: 10px;
     margin: 10px;
     width: 700px;
     height: 400px;
 }
+
+
+/*Sidebar_board.js*/
+#side{
+    display: flex;
+    border-right: 1px solid #e0e0e0;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 20%;
+    height: 100%;
+    float: left;
+}
+
+
 
 /* Git_main.js */
 #search_input {
@@ -72,4 +87,14 @@ input, h2 {
 }
 
 
-/* Work_day.js */
+/* Working_Monthly.js */
+#calendar {
+    width: 70%;
+}
+
+
+/* Working_vacation.js */
+#vacation {
+    float: left;
+    padding: 10px;
+}

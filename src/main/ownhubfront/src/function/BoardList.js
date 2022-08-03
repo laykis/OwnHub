@@ -12,8 +12,6 @@ function BoardList() {
         setContentList(e.target.value)
     }
 
-
-
     useEffect(()=> {
             axios.get("/home/board/content")
                 .then(res => handleContentList(res))

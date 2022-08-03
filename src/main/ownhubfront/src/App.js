@@ -12,7 +12,11 @@ import Login from "./function/Login";
 import MainPage from "./function/Main1";
 import Git_main from "./function/Git_main";
 import Member from "./function/Member";
-import Workday from "./function/Work_day";
+import Vacation from "./function/Working_vacation";
+import Workday from "./function/Working_Monthly";
+
+
+
 
 function App() {
   // 로그인 상태 관리
@@ -42,7 +46,8 @@ function App() {
           <Route path="/content" component={BoardList}/>
           <Route path="/repository" component={Git_main}/>
           <Route path="/members" component={Member}/>
-          <Route path="/working" component={Workday}/>
+          <Route path="/working/vacation" component={Vacation}/>
+          <Route path="/working/monthly" component={Workday}/>
           <Route path="/" exact component={Layout}/>
         </Switch>
       </BrowserRouter>
