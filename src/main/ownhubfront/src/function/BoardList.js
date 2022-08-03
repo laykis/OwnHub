@@ -1,6 +1,8 @@
 import React, {useEffect, useState} from "react";
 import axios from "axios";
 import "../App.css";
+import Sidebar from "../layout/sidebar_board"
+
 
 function BoardList() {
 
@@ -31,6 +33,8 @@ function BoardList() {
 
     return(
         <div>
+            <Sidebar/>
+            <p>Board</p>
             {printContentList}
         </div>
 

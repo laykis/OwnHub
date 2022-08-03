@@ -45,3 +45,29 @@ blockquote {
     height: auto;
     object-fit: cover;
 }
+
+
+/* sidebar_board.js */
+/*
+#side {
+    display: flex;
+    border-right: 1px solid #e0e0e0;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 20%;
+}
+
+#Profile {
+    width: 150px;
+    height: 150px;
+    border-radius: 100%;
+}
+
+#menu {
+    margin-top: 30px;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+}
+*/

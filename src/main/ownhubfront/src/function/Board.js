@@ -50,14 +50,12 @@ function Board() {
                                 <option value="team">부서게시판</option>
                                 <option value="free">자유게시판</option>
                             </select>
+                            <input id = "writing_title" type="text" name="title" value={title} onChange={handleTitle} placeholder="제목을 입력하세요." />
                         </div>
                         <div>
-                            <input id = "title" type="text" name="title" value={title} onChange={handleTitle} placeholder="제목을 입력하세요." />
+                            <input id = "writing_content" type="text" name="content" value={content} onChange={handleContent} placeholder="내용을 입력하세요." />
                         </div>
-                        <div>
-                            <input id = "content" type="text" name="content" value={content} onChange={handleContent} placeholder="내용을 입력하세요." />
-                        </div>
-                        <button type="button" id="submitBtn" onClick={onClickSubmit}>작성</button>
+                        <button type="button" id="submitBtn" onClick={onClickSubmit}>글 올리기</button>
                     </form>
                 </div>
             </body>

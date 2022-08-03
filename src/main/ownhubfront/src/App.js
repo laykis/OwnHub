@@ -10,7 +10,6 @@ import Board from "./function/Board";
 import BoardList from "./function/BoardList"
 import Login from "./function/Login";
 import MainPage from "./function/Main1";
-// import Sidebar from "./layout/sidebar_board";
 import Git_main from "./function/Git_main";
 import Member from "./function/Member";
 import Workday from "./function/Work_day";
@@ -36,18 +35,16 @@ function App() {
     <>
       <Header />
       <BrowserRouter>
-        <div>
-          <Switch>
-            <Route path={"/main1"} component={MainPage} />
-            <Route path={"/login"} component={Login} />
-            <Route path={"/board"} component={Board}/>
-            <Route path={"/content"} component={BoardList}/>
-            <Route path={"/repository"} component={Git_main}/>
-            <Route path={"/members"} component={Member}/>
-            <Route path={"/working"} component={Workday}/>
-            <Route path={"/"} component={Layout}/>
-          </Switch>
-        </div>
+        <Switch>
+          <Route path="/main1" component={MainPage} />
+          <Route path="/login" component={Login} />
+          <Route path="/board" component={Board}/>
+          <Route path="/content" component={BoardList}/>
+          <Route path="/repository" component={Git_main}/>
+          <Route path="/members" component={Member}/>
+          <Route path="/working" component={Workday}/>
+          <Route path="/" exact component={Layout}/>
+        </Switch>
       </BrowserRouter>
       <Footer />
     </>
