@@ -19,19 +19,26 @@ function BoardList() {
         },[]
     )
 
-    const printContentList = () => {
+    function Content({content}){
         return(
             <div>
-                {contentList.map((content) =>{
-                    return <div> title = {content.title} </div>
-                })}
+                {content.title}
+            </div>
+        )
+    }
+    function printContentList({contentList}){
+        return(
+            <div>
+                {contentList.map(content => (
+                    <Content title = {content} />
+                ))}
             </div>
         );
     };
 
     return(
         <div>
-            {printContentList}
+            {printContentList(contentList)}
         </div>
 
     )
