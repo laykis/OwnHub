@@ -1,9 +1,9 @@
 import React, {useState} from "react";
 import axios from "axios";
 import "../each_page.css";
+import Sidebar from "../layout/sidebar_board";
 
 function Board() {
-
     const [title, setTitle] = useState("")
     const [content, setContent] = useState("")
 
@@ -40,8 +40,9 @@ function Board() {
 
 
     return (
-        <div id="writing">
-            <body>
+        <div>
+            <Sidebar/>
+            <body id="writing">
                 <div>
                     <form>
                         <div>
@@ -50,14 +51,14 @@ function Board() {
                                 <option value="team">부서게시판</option>
                                 <option value="free">자유게시판</option>
                             </select>
+                            <input id = "writing_title" type="text" name="title" value={title} onChange={handleTitle} placeholder="제목을 입력하세요." />
                         </div>
                         <div>
-                            <input id = "title" type="text" name="title" value={title} onChange={handleTitle} placeholder="제목을 입력하세요." />
+                            <input id = "writing_content" type="text" name="content" value={content} onChange={handleContent} placeholder="내용을 입력하세요." />
                         </div>
                         <div>
-                            <input id = "content" type="text" name="content" value={content} onChange={handleContent} placeholder="내용을 입력하세요." />
+                        <button type="button" id="submitBtn" onClick={onClickSubmit}>글 올리기</button>
                         </div>
-                        <button type="button" id="submitBtn" onClick={onClickSubmit}>작성</button>
                     </form>
                 </div>
             </body>

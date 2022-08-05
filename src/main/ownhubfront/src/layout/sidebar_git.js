@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import SidebarItem from "./SidebarItem";
-// import "./layout.css"
+import "./layout.css"
 // import profile from "../assets/profile.png";
 // import styled from "styled-components";
 
@@ -9,10 +9,8 @@ import SidebarItem from "./SidebarItem";
 
 function Sidebar() {
   const menus = [
-    { name: "글쓰기", path: "/board" },
-    { name: "공지사항", path: "/content/notice" },
-    { name: "부서게시판", path: "/content/teamboard" },
-    { name: "자유게시판", path: "/content/freeboard"}
+    { name: "내 Git 보기", path: "/git/mygit" },
+    { name: "팀 Git 보기", path: "/git/teamgit" }
   ];
 
   return (

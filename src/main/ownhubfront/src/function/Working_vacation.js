@@ -3,13 +3,15 @@ import React, {useState} from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import "../each_page.css";
+import Sidebar from "../layout/sidebar_working";
 
-const Workday = () => {
+const Vacation = () => {
     const [startDate, setStartDate] = useState(new Date());
     const [endDate,setEndDate] = useState(new Date());
 
     return (
         <div>
+            <Sidebar/>
             <body id="body">
                 <div id="vacation">
                     <h2>휴가 신청</h2>
@@ -37,4 +39,4 @@ const Workday = () => {
     )
 }
 
-export default Workday
+export default Vacation

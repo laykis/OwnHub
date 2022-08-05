@@ -1,18 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@200;400;500;600;700&family=IBM+Plex+Sans:wght@100;200;300;500;600;700&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=IBM+Plex+Sans:wght@100;200;300;500;600;700&family=Nanum+Myeongjo:wght@400;700;800&display=swap');
 p, strong {
-    font-family: 'IBM Plex Sans KR', sans-serif;
+    font-family: 'Nanum Myeongjo', serif;
     font-size: 1em;
 }
 
 #title {
-    font-family: 'IBM Plex Sans KR', sans-serif;
+    font-family: 'Nanum Myeongjo', serif;
     font-size: 3.214em;
     line-height: 1.2;
 }
 
 #second_title {
-    font-family: 'IBM Plex Sans KR', sans-serif;
+    font-family: 'Nanum Myeongjo', serif;
     font-size:14px;
 }
 
@@ -44,4 +43,84 @@ blockquote {
     max-width: 100%;
     height: auto;
     object-fit: cover;
+}
+
+
+/*  header */
+.header {
+    /* position: fixed; */
+    margin: auto;
+    top: 0;
+    width: 100%;
+    height: 100px;
+    align-items: center;
+    background-color: aquamarine;
+}
+
+
+#logo_title {
+    float: left;
+    align-items: center;
+    padding: 15px;
+    font-size: 20px;
+    font-weight: bold;
+    width: 10%;
+    margin: 20px 10px;
+}
+
+#login {
+    float: right;
+    align-items: center;
+    padding: 15px;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 20px 0px;
+}
+
+#menu {
+    width: 70%;
+    height: 3rem;
+    float: left;
+    padding: 10px;
+    margin: 10px 3%;
+  }
+  
+#menu-item {
+    font-family: 'IBM Plex Sans KR', sans-serif;
+    display: inline-block;
+    color: rgb(59, 59, 59);
+    font-size: 1.2rem;
+    font-style: bold;
+    line-height: 3.5rem;
+    width: 25%;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-decoration: none;
+  }
+  
+#menu-item:hover {
+    background-color: #cdfff3;
+  }
+  
+#menu-item:active, #menu-item.active {
+    background-color: #9cd7ee;
+  }
+
+
+
+  /* footer */
+  .footer {
+    height: 80px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    transform: translateY(100%);
+    background: #343a40;
+    color : #fff;
+}
+
+.main-foot{
+    text-align: left;
+    margin: 10px;
 }

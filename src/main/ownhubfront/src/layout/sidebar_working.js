@@ -9,10 +9,9 @@ import SidebarItem from "./SidebarItem";
 
 function Sidebar() {
   const menus = [
-    { name: "글쓰기", path: "/board" },
-    { name: "공지사항", path: "/content/notice" },
-    { name: "부서게시판", path: "/content/teamboard" },
-    { name: "자유게시판", path: "/content/freeboard"}
+    { name: "월간 일정", path: "/working/monthly" },
+    { name: "근무시간 기록", path: "/working/record" },
+    { name: "휴가신청", path: "/working/vacation" }
   ];
 
   return (

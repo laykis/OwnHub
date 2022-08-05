@@ -6,14 +6,23 @@ import Layout from "./layout/layout";
 import Footer from "./layout/footer";
 import Header from "./layout/header";
 
-import Board from "./function/Board";
-import BoardList from "./function/BoardList"
 import Login from "./function/Login";
 import MainPage from "./function/Main1";
-// import Sidebar from "./layout/sidebar_board";
+
+import Board from "./function/Board";
+import BoardList from "./function/BoardList";
+
 import Git_main from "./function/Git_main";
+import Git_my from "./function/Git_my";
+
 import Member from "./function/Member";
-import Workday from "./function/Work_day";
+import Mypage from "./function/Mypage";
+import Management from "./function/Management";
+
+import Vacation from "./function/Working_vacation";
+import Workday from "./function/Working_Monthly";
+
+
 
 function App() {
   // 로그인 상태 관리
@@ -36,18 +45,30 @@ function App() {
     <>
       <Header />
       <BrowserRouter>
-        <div>
-          <Switch>
-            <Route path={"/main1"} component={MainPage} />
-            <Route path={"/login"} component={Login} />
-            <Route path={"/board"} component={Board}/>
-            <Route path={"/content"} component={BoardList}/>
-            <Route path={"/repository"} component={Git_main}/>
-            <Route path={"/members"} component={Member}/>
-            <Route path={"/working"} component={Workday}/>
-            <Route path={"/"} component={Layout}/>
-          </Switch>
-        </div>
+        <Switch>
+
+          {/* Git */}
+          <Route path="/git/mygit" component={Git_my}/>
+          <Route path="/git/teamgit" component={Git_main}/>
+          
+          {/* 사원관리 */}
+          <Route path="/members" component={Member}/>
+          <Route path="/mypage" component={Mypage}/>
+          <Route path="/management" component={Management}/>
+
+          {/* 근태관리 */}
+          <Route path="/working/vacation" component={Vacation}/>
+          <Route path="/working/monthly" component={Workday}/>
+          
+          {/* 게시판 */}
+          <Route path="/board" component={Board}/>
+          <Route path="/content" component={BoardList}/>
+
+          {/* 메인 페이지 */}
+          <Route path="/main1" component={MainPage} />
+          <Route path="/login" component={Login} />
+          <Route path="/" exact component={Layout}/>
+        </Switch>
       </BrowserRouter>
       <Footer />
     </>

@@ -3,13 +3,13 @@ import React from "react";
 import "../each_page.css";
 import Sidebar from "../layout/sidebar_member";
 
-const Member = () => {
+const Mypage = () => {
     return (
         <div>
             <Sidebar/>
-            Member 관리
+            마이페이지
         </div>
     )
 }
 
-export default Member
+export default Mypage
