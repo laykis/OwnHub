@@ -247,6 +247,28 @@ input, h2 {
 
 
 /* Member.js */
+#info {
+  margin: 20px 20px;
+  padding: 20px;
+  height: 100px;
+  float: left;
+  width: 600px;
+}
+
+#face {
+  width: 150px;
+  float: left;
+  object-fit: cover;
+}
+
 #name {
   margin: 10px;
+  font-weight: 1000;
+  font-size: 1.5em;
 }
+
+#team_role {
+  font-weight: 400;
+  font-size: 0.9em;
+}
+
