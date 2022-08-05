@@ -8,6 +8,7 @@ import Header from "./layout/header";
 
 import Login from "./function/Login";
 import MainPage from "./function/Main1";
+import SignUp from "./function/Signup";
 
 import Board from "./function/Board";
 import BoardList from "./function/BoardList";
@@ -42,7 +43,7 @@ function App() {
   }, []);
 
   return (
-    <>
+    <div>
       <Header />
       <BrowserRouter>
         <Switch>
@@ -63,15 +64,17 @@ function App() {
           {/* 게시판 */}
           <Route path="/board" component={Board}/>
           <Route path="/content" component={BoardList}/>
-
+          
           {/* 메인 페이지 */}
           <Route path="/main1" component={MainPage} />
           <Route path="/login" component={Login} />
+          <Route path="/signup" component={SignUp}/>
           <Route path="/" exact component={Layout}/>
+
         </Switch>
       </BrowserRouter>
       <Footer />
-    </>
+    </div>
   );
 }
 

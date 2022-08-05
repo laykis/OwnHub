@@ -8,7 +8,7 @@ const Footer = () => {
     };
     return (
         <footer className='footer'>
-            <p id="main-foot">Copyright &copy; <span>{thisYear()}</span></p>
+            <p id="main-foot">Copyright &copy; <span>{thisYear()} 김가네</span></p>
         </footer>
     )
 }

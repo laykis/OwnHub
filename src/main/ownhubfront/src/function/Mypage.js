@@ -7,7 +7,9 @@ const Mypage = () => {
     return (
         <div>
             <Sidebar/>
-            마이페이지
+            my page
+            <p id="name">김가영</p>
+
         </div>
     )
 }

@@ -74,7 +74,8 @@ function Login() {
                             </div>
                             <button type='button' id="loginBtn" onClick={onClickLogin} class="btn primary">로그인</button>
                             <br/>
-                            <a class="form-end" href="$">비밀번호를 잊으셨나요?</a>
+                            <a id="signup" href='/signup'>회원가입</a>
+                            <a id="search" href="$">비밀번호 찾기</a>
                         </form>
                     </section>
                 </div>

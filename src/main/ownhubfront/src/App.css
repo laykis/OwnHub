@@ -74,7 +74,7 @@ a:link, a:visited{
 button {
   border: none;
   border-radius: 5px;
-  width: 250px;
+  width: 300px;
   padding: 12px 0;
   margin: 5px;
   color: #fff;
@@ -91,4 +91,14 @@ button {
   border-radius: 5px;
   border: 0.5px solid rgba(0, 0, 0, 0.3);
   justify-content: center;
+}
+
+#signup {
+  text-align: left;
+  align-items: left;
+}
+
+#search {
+  text-align: right;
+  align-items: right;
 }

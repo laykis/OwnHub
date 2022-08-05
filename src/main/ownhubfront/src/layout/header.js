@@ -14,9 +14,9 @@ const Header = () => {
                 <MenuItem><a href='/git/mygit'>Git</a></MenuItem>
                 <MenuItem><a href='/members'>사원관리</a></MenuItem>
                 <MenuItem><a href='/working/monthly'>근태관리</a></MenuItem>
-                <MenuItem><a href='/content/notice'>게시판</a></MenuItem>
+                <MenuItem><a href='/board'>게시판</a></MenuItem>
             </div>
-            <p id="login"><a href='/login'>Login </a></p>
+            <a href='login'><img id='login' src={require("./img/login.png")}></img></a>
         </header>
     )
 }

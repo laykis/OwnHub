@@ -8,7 +8,7 @@ button {
     margin: 5px;
     color: #2E2E2E;
     font-size: 15px;
-    background-color: skyblue;
+    background-color: #F29C7E;
 }
 
 input, h2 {
@@ -237,14 +237,16 @@ input, h2 {
 
 /* Git.js common use */
 #search {
-    margin: 30px 10px;
-    padding: 10px;
+  margin: 30px 10px;
+  padding: 10px;
 }
 
 #page_title {
-    margin: 30px 10px;
+  margin: 30px 10px;
 }
 
 
 /* Member.js */
-
+#name {
+  margin: 10px;
+}

@@ -7,7 +7,11 @@ const Member = () => {
     return (
         <div>
             <Sidebar/>
-            Member 관리
+            
+            <form id="search">
+                <input id="search_input" name="keyword" placeholder="사원 검색"></input> 
+                <button>search</button>
+            </form>
         </div>
     )
 }
