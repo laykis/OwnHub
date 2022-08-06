@@ -1,5 +1,6 @@
 import "../App.css";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 
 
 const SignUp = ({ history }) => {
@@ -107,12 +108,12 @@ const SignUp = ({ history }) => {
     };
   
     return (
-      <Container>
-        <Title>회원가입</Title>
-        <InputContainer>
-          <InputItem>
-            <InputTitle>아이디</InputTitle>
-            <Input
+      <div>
+        <h1>회원가입</h1>
+        <div class="InputContainer">
+          <div class="InputItem">
+            <h2 id="logo">아이디</h2>
+            <input
               type="text"
               placeholder="아이디를 입력하세요"
               value={id}
@@ -120,10 +121,10 @@ const SignUp = ({ history }) => {
               required
             />
             {idError ? <ErrorMessage>{idError}</ErrorMessage> : ""}
-          </InputItem>
-          <InputItem>
-            <InputTitle>비밀번호</InputTitle>
-            <Input
+          </div>
+          <div class="InputItem">
+            <h2>비밀번호</h2>
+            <input
               type="password"
               placeholder="비밀번호를 입력하세요"
               value={pwd}
@@ -131,10 +132,10 @@ const SignUp = ({ history }) => {
               required
             />
             {pwdError ? <ErrorMessage>{pwdError}</ErrorMessage> : ""}
-          </InputItem>
-          <InputItem>
-            <InputTitle>비밀번호 확인</InputTitle>
-            <Input
+          </div>
+          <div class="InputItem">
+            <h2>비밀번호 확인</h2>
+            <input
               type="password"
               placeholder="비밀번호 확인을 입력하세요"
               value={confirmPwd}
@@ -146,13 +147,10 @@ const SignUp = ({ history }) => {
             ) : (
               ""
             )}
-          </InputItem>
-        </InputContainer>
-        <Button type="submit" value="가입" onClick={onSignUp} />
-        <Link to="/">
-          <Button type="submit" value="로그인" />
-        </Link>
-      </Container>
+          </div>
+        </div>
+        <button type="submit" value="가입" onClick={onSignUp} />
+      </div>
     );
   };
   

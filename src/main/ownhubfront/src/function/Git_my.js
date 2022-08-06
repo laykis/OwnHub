@@ -11,7 +11,7 @@ const Git_my = () => {
             <Sidebar/>
             <form id="search">
                 <input id="search_input" name="keyword" placeholder="Search repository"></input> 
-                <button>search</button>
+                <button id="btn_search">search</button>
             </form>
             <div>
                 <h2 id='page_title'>나의 Git</h2>

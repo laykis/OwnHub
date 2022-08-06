@@ -95,10 +95,18 @@ button {
 
 #signup {
   text-align: left;
-  align-items: left;
+  float: left;
+  padding: 10px 25px;
 }
 
-#search {
+#num_search {
   text-align: right;
-  align-items: right;
+  float: right;
+  padding: 10px 25px;
+}
+
+
+/* Signup.js */
+#InputContainer {
+  width: 50%;
 }

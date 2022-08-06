@@ -10,9 +10,6 @@ import Login from "./function/Login";
 import MainPage from "./function/Main1";
 import SignUp from "./function/Signup";
 
-import Board from "./function/Board";
-import BoardList from "./function/BoardList";
-
 import Git_main from "./function/Git_main";
 import Git_my from "./function/Git_my";
 
@@ -22,6 +19,10 @@ import Management from "./function/Management";
 
 import Vacation from "./function/Working_vacation";
 import Workday from "./function/Working_Monthly";
+import Record from "./function/Working_hour";
+
+import Board from "./function/Board";
+import BoardList from "./function/BoardList";
 
 
 
@@ -60,6 +61,7 @@ function App() {
           {/* 근태관리 */}
           <Route path="/working/vacation" component={Vacation}/>
           <Route path="/working/monthly" component={Workday}/>
+          <Route path="/working/record" component={Record}/>
           
           {/* 게시판 */}
           <Route path="/board" component={Board}/>

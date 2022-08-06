@@ -38,10 +38,8 @@ function BoardList() {
 
     return(
         <div>
-
             {printContentList(contentList)}
             <Sidebar/>
-
             <p>Board</p>
         </div>
 
