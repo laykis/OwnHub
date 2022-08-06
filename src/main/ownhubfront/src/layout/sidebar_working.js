@@ -9,9 +9,9 @@ import SidebarItem from "./SidebarItem";
 
 function Sidebar() {
   const menus = [
-    { name: "월간 일정", path: "/working/monthly" },
-    { name: "근무시간 기록", path: "/working/record" },
-    { name: "휴가신청", path: "/working/vacation" }
+    { name: "월간 일정", path: "/workingmonthly" },
+    { name: "근무시간 기록", path: "/workingrecord" },
+    { name: "휴가신청", path: "/workingvacation" }
   ];
 
   return (

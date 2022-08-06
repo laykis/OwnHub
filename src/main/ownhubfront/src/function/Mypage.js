@@ -16,6 +16,37 @@ function Mypage() {
     }, []
     )
 
+
+    const [contentList, setContentList] = useState({})
+    const handleContentList = (e) => {
+        setContentList(e.target.value)
+    }
+
+    useEffect(()=> {
+            axios.get("/home/board/content")
+                .then(res => handleContentList(res))
+                .catch()
+        },[]
+    )
+
+    function Content({content}){
+        return(
+            <div>
+                {content.title}
+            </div>
+        )
+    }
+    function printContentList({contentList}){
+        return(
+            <div>
+                {contentList.map(content => (
+                    <Content title = {content} />
+                ))}
+            </div>
+        );
+    };
+
+    
     function myInfo({users}){
         return (
             <div>
@@ -23,12 +54,15 @@ function Mypage() {
                     <img id="face" src={require("../layout/img/face.png")}></img>
                     <p id="name">김가영</p>
                     <p id="team_role">OwnHub - IT개발본부 - 차세대 개발팀</p>
-                    <a href="/git/mygit"><button>Repository 이동하기</button></a>
+                    <a href="/mygit"><button>Repository 이동하기</button></a>
                     <button>우편함</button>
+                </div>
+                <div id="mywriting">
+                    <h3>내가 쓴 글</h3>
+                    {/*{printContentList(contentList)}*/}
                 </div>
             </div>);
     };
-
 
     return (
         <div>

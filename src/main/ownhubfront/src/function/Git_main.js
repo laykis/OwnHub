@@ -11,10 +11,10 @@ const Git_main = () => {
             <Sidebar/>
             <form id="search">
                 <input id="search_input" name="keyword" placeholder="Search repository"></input> 
-                <button>search</button>
+                <button id="btn_search">search</button>
             </form>
-            <h2>Repository 둘러보기</h2>
-            <div id='card_section'>
+            <div id='git'>
+                <h2>Repository 둘러보기</h2>
                 <p>Group repository</p>
                 <p>Dohyun's Repository</p>
                 <p>Gayoung's Repository</p>

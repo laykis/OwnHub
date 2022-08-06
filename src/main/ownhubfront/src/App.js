@@ -50,8 +50,8 @@ function App() {
         <Switch>
 
           {/* Git */}
-          <Route path="/git/mygit" component={Git_my}/>
-          <Route path="/git/teamgit" component={Git_main}/>
+          <Route path="/mygit" component={Git_my}/>
+          <Route path="/teamgit" component={Git_main}/>
           
           {/* 사원관리 */}
           <Route path="/members" component={Member}/>
@@ -59,9 +59,9 @@ function App() {
           <Route path="/management" component={Management}/>
 
           {/* 근태관리 */}
-          <Route path="/working/vacation" component={Vacation}/>
-          <Route path="/working/monthly" component={Workday}/>
-          <Route path="/working/record" component={Record}/>
+          <Route path="/workingvacation" component={Vacation}/>
+          <Route path="/workingmonthly" component={Workday}/>
+          <Route path="/workingrecord" component={Record}/>
           
           {/* 게시판 */}
           <Route path="/board" component={Board}/>

@@ -13,11 +13,11 @@ const Git_my = () => {
                 <input id="search_input" name="keyword" placeholder="Search repository"></input> 
                 <button id="btn_search">search</button>
             </form>
-            <div>
+            <div id="git">
                 <h2 id='page_title'>나의 Git</h2>
                 <div id='button_section'>
                     <button>Repository 생성</button>
-                    <button>Commit</button>
+                    <button>커밋하기</button>
                 </div>
             </div>
         </div>

@@ -7,7 +7,6 @@ import Sidebar from "../layout/sidebar_board"
 function BoardList() {
 
     const [contentList, setContentList] = useState({})
-
     const handleContentList = (e) => {
         setContentList(e.target.value)
     }
