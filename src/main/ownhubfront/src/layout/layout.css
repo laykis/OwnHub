@@ -4,6 +4,10 @@ p, strong {
     font-size: 1em;
 }
 
+body {
+    height: 100%;
+}
+
 #title {
     font-family: 'Nanum Myeongjo', serif;
     font-size: 3.214em;
@@ -112,8 +116,8 @@ blockquote {
 .footer {
     height: 80px;
     width: 100%;
-    position: absolute;
     bottom: 0;
+    position: absolute;
     transform: translateY(100%);
     background: #343a40;
     color : #fff;
