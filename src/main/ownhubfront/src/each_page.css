@@ -29,7 +29,6 @@ input, h2, h3, h1 {
 }
 
 #search {
-  margin: 20px 10px;
   padding: 10px;
   float: right;
 }
@@ -110,7 +109,7 @@ input, h2, h3, h1 {
   width: 65%;
   height: 60%;
   position: absolute;
-  margin-top: 8%;
+  margin-top: 4%;
   margin-left: 25%;
   padding: 2%;
   border-radius: 8px;

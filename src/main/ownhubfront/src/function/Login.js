@@ -55,9 +55,15 @@ function Login() {
     // 페이지 랜더링 후 가장 처음 호출되는 함수
     useEffect(()=> {
         axios.get("/user/login")
-            .then(res => console.log(res))
+            .then(res => {
+                console.log(res)
+                if(res.data.result === "success"){
+                    console.log("Login success")
+                    window.location.href = "redirect:/mypage"
+                }
+            })
             .catch()
-    },[]
+        },[]
     )
 
 
