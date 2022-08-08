@@ -39,7 +39,7 @@ const Signup = () =>{
     })
         .then(res => {
             console.log(res)
-            if(res.data.result === "sucsess"){
+            if(res.data.result === "success"){
                 console.log("Signup success")
                 alert("회원가입이 완료되었습니다. 로그인을 진행하세요")
                 window.location.href = "redirect:/login"
