@@ -50,6 +50,7 @@ function Board() {
         <div>
             <body>
                 <Sidebar/>
+                <h2>글쓰기</h2>
                 <div id="writing">
                     <div>
                         <select id="cboard" value={cboard} onChange={handleSelect}>
