@@ -9,8 +9,8 @@ import "./layout.css"
 
 function Sidebar() {
   const menus = [
-    { name: "내 Git 보기", path: "/git/mygit" },
-    { name: "팀 Git 보기", path: "/git/teamgit" }
+    { name: "내 Git 보기", path: "/mygit" },
+    { name: "팀 Git 보기", path: "/teamgit" }
   ];
 
   return (
