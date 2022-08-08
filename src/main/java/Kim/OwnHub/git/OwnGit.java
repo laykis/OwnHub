@@ -36,7 +36,6 @@ public class OwnGit {
         try (Git git = Git.init().setBare(true).setDirectory(filePath).call()) {
 
             System.out.println("Having repository: " + git.getRepository().getDirectory());
-
         }catch(GitAPIException e){
 
             e.printStackTrace();
