@@ -55,33 +55,34 @@ function Login() {
     // 페이지 랜더링 후 가장 처음 호출되는 함수
     useEffect(()=> {
         axios.get("/user/login")
-            .then(res => console.log(res))
+            .then(res => {
+                console.log(res)
+                if(res.data.result === "success"){
+                    console.log("Login success")
+                    window.location.href = "redirect:/mypage"
+                }
+            })
             .catch()
-    },[]
+        },[]
     )
 
 
     return(
-        <div>
-            <body>
-                <div class="wrap-login">
-                    <section class="login-section">
-                        <h1 class="logo">Ownhub Login</h1>
-                        <form class="login-form">
-                            <div class="input-box">
-                                <input id="inputId" type="text" name='userId' value={userId} onChange={handleUserId} placeholder="전화번호, 사용자 이름 또는 이메일" />
-                                <input id="inputPw" type="password" name='userPw' value={userPw} onChange={handleUserPw} placeholder="비밀번호" />
-                            </div>
-                            <button type='button' id="loginBtn" onClick={onClickLogin} class="btn primary">로그인</button>
-                            <br/>
-                            <a id="signup" href='/signup'>회원가입</a>
-                            <a id="num_search" href="$">비밀번호 찾기</a>
-                        </form>
-                    </section>
+        <div class="wrap-login">
+            <div class="box-section">
+                <h1 class="logo">Ownhub Login</h1>
+                <div class="login-form">
+                    <div class="input-box">
+                        <input id="inputId" type="text" name='userId' value={userId} onChange={handleUserId} placeholder="전화번호, 사용자 이름 또는 이메일" />
+                        <input id="inputPw" type="password" name='userPw' value={userPw} onChange={handleUserPw} placeholder="비밀번호" />
+                    </div>
+                    <button type='button' id="loginBtn" onClick={onClickLogin} class="btn primary">로그인</button>
+                    <br/>
+                    <a id="signup" href='/signup'>회원가입</a>
+                    <a id="num_search" href="$">비밀번호 찾기</a>
                 </div>
-            </body>
+            </div>
         </div>
-
     )
 }
 

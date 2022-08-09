@@ -14,17 +14,18 @@ function BoardList() {
     useEffect(()=> {
             axios.get("/home/board/content")
                 .then(res => handleContentList(res))
-                .catch()
+                .catch(err => console.log(err));
         },[]
-    )
+    );
 
-    function Content({content}){
+    function Content({content}) {
         return(
             <div>
                 {content.title}
             </div>
         )
     }
+
     function printContentList({contentList}){
         return(
             <div>
