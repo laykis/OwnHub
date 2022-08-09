@@ -18,7 +18,11 @@ function GetData() {
   const item = (Object.values(data)).map((item) => (
     <CommonTableRow key={item.id}>
       <CommonTableColumn>{item.id}</CommonTableColumn>
-      <CommonTableColumn>{item.title}</CommonTableColumn>
+      <CommonTableColumn>
+        <Link to={`/board/${item.id}`}>
+          {item.title}
+        </Link>
+      </CommonTableColumn>
       <CommonTableColumn>{item.wdate}</CommonTableColumn>
       <CommonTableColumn>{item.cuid}</CommonTableColumn>
     </CommonTableRow>
@@ -33,6 +37,7 @@ function Teamboard() {
   return (
     <div>
         <Sidebar/>
+        <h2 id="title_page">부서게시판</h2>
         <CommonTable headersName={['번호', '제목', '등록일', '작성자']}>
         {item}
         </CommonTable>

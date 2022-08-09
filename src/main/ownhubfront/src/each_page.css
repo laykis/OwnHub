@@ -105,8 +105,35 @@ input, h2, h3, h1 {
 #title_page {
   float: left;
   margin: 20px 30px;
-  padding: 20px 30px 0px 30px;
-  
+  padding: 20px 30px 0px 30px;  
+}
+
+/* Board_detail.js */
+.voc-view-wrapper {
+  width: 60%;
+  margin: 0 auto;
+}
+
+.voc-view-go-list-btn {
+  border: 0;
+  padding: 10px;
+  background-color: #ffd9d9;
+}
+
+.voc-view-row {
+  margin: 10px 0;
+  display: flex;
+}
+
+.voc-view-row>label:first-child {
+  margin: 10px 0;
+  width: 30%;
+  font-weight: bold;
+}
+
+.voc-view-row>*:nth-child(2) {
+  margin: 10px 0;
+  width: 70%;
 }
 
 /* Common Board */
@@ -158,6 +185,30 @@ input, h2, h3, h1 {
 /* Git.js common use */
 #page_title {
   margin: 30px 10px;
+}
+
+#gitBtn {
+  margin: 20px auto;
+  width: 180px;
+  font-size: 0.8em;
+  margin: 5px;
+}
+
+#git_input{
+  width: 200px;
+  height: 30px;
+  margin: 5px;
+  padding: 2px;
+}
+
+#repo-create {
+  float: left;
+  margin: 5px;
+}
+
+#repo-clone{
+  float: left;
+  margin: 5px;
 }
 
 
