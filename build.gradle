@@ -53,7 +53,7 @@ sourceSets {
 		}
 	}
 }
-/*
+
 processResources {
 	dependsOn "copyReactBuildFiles"
 }
@@ -89,7 +89,7 @@ task copyReactBuildFiles(type: Copy) {
 	from "$frontendDir/build"
 	into "$buildDir/resources/main/static"
 }
-*/
+
 task buildAdmin(type: NpmTask) {
 	args = ['run', 'build']
 }
