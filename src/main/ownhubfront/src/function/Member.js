@@ -3,42 +3,78 @@ import axios from "axios";
 import "../each_page.css";
 import Sidebar from "../layout/sidebar_member";
 
-const Member = () => {
-    const [users, setUsers] = useState({})
+import CommonTable from "./CommonTable";
+import CommonTableColumn from "./CommonColumn";
+import CommonTableRow from "./CommonRow";
+
+const Search = () => {
+    const [user, setUser] = useState([])
     const userInfo = (e) => {
-        setUsers(e.target.value)
+        setUser(e.target.value)
     }
 
     useEffect(()=>{
-        axios.get("/mypage")
+        axios.get("/member_list")
             .then(res => userInfo(res))
             .catch()
     }, []
     )
 
-    function myInfo({users}){
-        return (
-            <div>
-                <div id="info">
-                    <img id="face" src={require("../layout/img/face.png")}></img>
-                    <p id="name">김가영</p>
-                    <p id="team_role">OwnHub - IT개발본부 - 차세대 개발팀</p>
-                    <a href="/git/mygit"><button>Repository 이동하기</button></a>
-                    <button>우편함</button>
-                </div>
-            </div>);
-    };
-
     return (
         <div>
-            <Sidebar/>
-            
             <form id="search">
-                <input id="search_input" name="keyword" placeholder="사원 검색"></input> 
+                <input 
+                    id="search_input" 
+                    name="keyword" 
+                    value={user}
+                    placeholder="사원 검색"
+                ></input> 
                 <button id="btn_search">search</button>
             </form>
         </div>
     )
-}
+};
 
-export default Member
+function GetData() {
+    const [data, setData] = useState({});
+    useEffect(() => {
+        axios.get('/memberlist').then((response)=> {
+        setData(response.data);
+        })
+    }, []);
+
+    const item = (Object.values(data)).map((item) => (
+        <CommonTableRow key={item.id}>
+            <CommonTableColumn>{item.id}</CommonTableColumn>
+            <CommonTableColumn>{item.username}</CommonTableColumn>
+            <CommonTableColumn>{item.team}</CommonTableColumn>
+            <CommonTableColumn>{item.auth}</CommonTableColumn>
+            <CommonTableColumn>{item.email}</CommonTableColumn>
+            <CommonTableColumn>
+                <Link to={`/member/${item.id}`}>Repo</Link>
+            </CommonTableColumn>
+            <CommonTableColumn>
+                <Link to={`/member/${item.id}`}>쪽지 보내기</Link>
+            </CommonTableColumn>
+        </CommonTableRow>
+    ));
+
+  return item;
+};
+
+function Member() {
+    const item = GetData();
+
+    return (
+        <div>
+            <Sidebar/>
+            <Search/>
+            <h2 id="title_page">사원관리</h2>
+            <CommonTable headersName={['사원번호', '이름', '소속팀', '직급', '이메일', 'Repository 보기', '쪽지 보내기']}>
+            {item}
+            </CommonTable>
+        </div>
+    );
+}
+  
+export default Member;

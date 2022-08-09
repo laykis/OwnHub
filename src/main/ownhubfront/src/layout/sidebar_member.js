@@ -10,8 +10,7 @@ import "./layout.css"
 function Sidebar() {
   const menus = [
     { name: "마이 페이지", path: "/mypage" },
-    { name: "사원관리", path: "/members" },
-    { name: "관리자 페이지", path: "/management" }
+    { name: "사원관리", path: "/members" }
   ];
 
   return (

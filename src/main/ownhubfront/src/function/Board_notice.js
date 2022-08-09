@@ -2,17 +2,18 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import "../each_page.css";
 
-import CommonTable from "./Board_common";
-import CommonTableColumn from "./Board_commoncolumn";
-import CommonTableRow from "./Board_commonrow";
+import CommonTable from "./CommonTable";
+import CommonTableColumn from "./CommonColumn";
+import CommonTableRow from "./CommonRow";
 import Sidebar from '../layout/sidebar_board';
 
 function GetData() {
     const [data, setData] = useState({});
     useEffect(() => {
-        axios.get('/board/notice').then((response)=> {
-        setData(response.data);
-        })
+        axios.get('/board/notice')
+            .then((response)=> {
+            setData(response.data);
+            })
     }, []);
 
     const item = (Object.values(data)).map((item) => (

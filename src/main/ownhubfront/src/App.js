@@ -15,7 +15,6 @@ import Git_my from "./function/Git_my";
 
 import Member from "./function/Member";
 import Mypage from "./function/Mypage";
-import Management from "./function/Management";
 
 import Vacation from "./function/Working_vacation";
 import Workday from "./function/Working_Monthly";
@@ -59,7 +58,6 @@ function App() {
           {/* 사원관리 */}
           <Route path="/members" component={Member}/>
           <Route path="/mypage" component={Mypage}/>
-          <Route path="/management" component={Management}/>
 
           {/* 근태관리 */}
           <Route path="/workingvacation" component={Vacation}/>

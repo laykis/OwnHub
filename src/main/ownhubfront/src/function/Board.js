@@ -54,6 +54,7 @@ function Board() {
                 <div id="writing">
                     <div>
                         <select id="cboard" value={cboard} onChange={handleSelect}>
+                            <option value="none">==선택==</option>
                             <option value="notice">공지사항</option>
                             <option value="team">부서게시판</option>
                             <option value="free">자유게시판</option>
