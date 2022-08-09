@@ -40,8 +40,26 @@ tasks.named('test') {
 	useJUnitPlatform()
 }
 
-node {
-	download = true
+node{
+        version = '16.16.0' // 설치할 node 버전
+        npmVersion = '8.11.0' // 설치할 yarn 버전
+	yarnVersion = '1.13.0' // 설치할 yarn 버전
+        download = true
+        distBaseUrl = 'https://nodejs.org/dist' // node를 다운받을 수 있는 주소
+        nodeworkDir = file("${project.rootDir}/nodejs") // node를 설치할 폴더를 설정
+	yarnWorkDir = file("${project.rootDir}/yarn") // yarn을 설치할 폴더를 설정
+}
+
+task yarnInstallProduction(type: YarnTask) {
+       args = ['install']
+}
+
+task nodeModuleInstall {
+	doLast {
+            nodeSetup.execute() // node를 설치
+            yarnSetup.execute() // yarn을 설치
+            yarnInstallProduction.execute() // package.json에 추가된 의존 모듈을 설치(yarn install)
+        }
 }
 
 def frontendDir = "$projectDir/src/main/ownhubfront"
