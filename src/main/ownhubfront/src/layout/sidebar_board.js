@@ -10,9 +10,9 @@ import SidebarItem from "./SidebarItem";
 function Sidebar() {
   const menus = [
     { name: "글쓰기", path: "/board" },
-    { name: "공지사항", path: "/content" },
-    { name: "부서게시판", path: "/content" },
-    { name: "자유게시판", path: "/content"}
+    { name: "공지사항", path: "/notice" },
+    { name: "부서게시판", path: "/teamboard" },
+    { name: "자유게시판", path: "/freeboard"}
   ];
 
   return (

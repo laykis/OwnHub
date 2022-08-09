@@ -23,6 +23,9 @@ import Record from "./function/Working_hour";
 
 import Board from "./function/Board";
 import BoardList from "./function/BoardList";
+import Notice from "./function/Board_notice";
+import Freeboard from "./function/Board_free";
+import Teamboard from "./function/Board_team";
 
 
 
@@ -65,7 +68,9 @@ function App() {
           
           {/* 게시판 */}
           <Route path="/board" component={Board}/>
-          <Route path="/content" component={BoardList}/>
+          <Route path="/notice" component={Notice}/>
+          <Route path="/freeboard" component={Freeboard}/>
+          <Route path="/teamboard" component={Teamboard}/>
           
           {/* 메인 페이지 */}
           <Route path="/main1" component={MainPage} />

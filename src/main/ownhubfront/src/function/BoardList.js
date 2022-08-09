@@ -1,20 +1,17 @@
 import React, {useEffect, useState} from "react";
 import axios from "axios";
-import "../App.css";
-import Sidebar from "../layout/sidebar_board"
-
+import "../each_page.css";
 
 function BoardList() {
-
     const [contentList, setContentList] = useState({})
     const handleContentList = (e) => {
         setContentList(e.target.value)
     }
 
     useEffect(()=> {
-            axios.get("/home/board/content")
-                .then(res => handleContentList(res))
-                .catch(err => console.log(err));
+        axios.get("/home/board/content")
+            .then(res => handleContentList(res))
+            .catch(err => console.log(err));
         },[]
     );
 
@@ -39,8 +36,6 @@ function BoardList() {
     return(
         <div>
             {printContentList(contentList)}
-            <Sidebar/>
-            <p>Board</p>
         </div>
 
     )
