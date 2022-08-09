@@ -13,7 +13,7 @@ const Git_main = () => {
         searchRepo(e.target.value)
     }
 
-    const onSearch = () => {
+    const onSearch = (e) => {
         e.preventDefault();
         console.log(search + " 찾기")
         axios.post("/repo/search", null, {
