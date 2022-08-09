@@ -138,8 +138,8 @@ input, h2, h3, h1 {
 
 /* Common Board */
 .common-table {
-  width: 65%;
-  min-height: 500px;
+  width: 70%;
+  min-height: 450px;
   height: auto;
   margin: 10px 50px;
   padding: 20px;
@@ -150,7 +150,15 @@ input, h2, h3, h1 {
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
 }
 
-.common-table-header-column {
+.common-table-header-column4 {
+  width: 25%;
+  border-bottom: 1px solid #e8e8e8;
+  padding: 0;
+  font-size: 16px;
+  padding: 10px 5px;
+  font-weight: bold;
+}
+.common-table-header-column8 {
   width: 12.5%;
   border-bottom: 1px solid #e8e8e8;
   padding: 0;
@@ -173,10 +181,14 @@ input, h2, h3, h1 {
 #git{
   width: 65%;
   height: 60%;
-  position: absolute;
-  margin-top: 4%;
+  margin-top: 2%;
   margin-left: 25%;
   padding: 2%;
+  display: block;
+}
+
+#result {
+  position:relative ;
 }
 
 
@@ -211,52 +223,6 @@ input, h2, h3, h1 {
   margin: 5px;
   float: right;
 }
-
-
-/* Working_Monthly.js */
-#calendar {
-  width: 70%;
-}
-
-/* Working_vacation.js */
-#vacation {
-  width: 65%;
-  height: 400px;
-  float: left;
-  padding-top: 30px;
-  padding-bottom: 30px;
-  padding-left: 30px;
-  padding-right: 30px;
-  margin: 50px;
-  border-radius: 8px;
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
-}
-
-#vacation_title {
-  text-align: center;
-}
-
-#vacation_table {
-  font-family: 'Nanum Myeongjo', serif;
-  width: 100%;
-  align-items: center;
-}
-
-
-#reason {
-  width: 90%;
-  height: 40px;
-}
-
-#submitBtn {
-  margin: 20px auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-/* Working_hour.js */
-
 
 
 
@@ -296,15 +262,59 @@ input, h2, h3, h1 {
 }
 
 
+/* Working_vacation.js & Working_hour.js*/
+#vacation {
+  width: 65%;
+  height: 400px;
+  float: left;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  padding-left: 30px;
+  padding-right: 30px;
+  margin: 50px;
+  border-radius: 8px;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+#vacation_title {
+  text-align: center;
+}
+
+#vacation_table {
+  font-family: 'Nanum Myeongjo', serif;
+  width: 100%;
+  align-items: center;
+}
+
+#reason {
+  width: 90%;
+  height: 40px;
+}
+
+#submitBtn {
+  margin: 20px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 
-
+/* Working_Monthly.js */
+#plan {
+  width: 65%;
+  min-height: 200px;
+  float: right;
+  margin: 10px 50px;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
 
 
 
 /*********** calendar ************/
 .react-calendar {
-  width: 600px;
+  width: 70%;
   height: 400px;
   max-width: 100%;
   font-family: 'Nanum Myeongjo', serif;
@@ -313,8 +323,8 @@ input, h2, h3, h1 {
   color: #222;
   border-radius: 8px;
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
-  margin: 30px;
-  padding: 20px;
+  margin: 50px;
+  padding: 30px;
 }
   
 .react-calendar--doubleView {

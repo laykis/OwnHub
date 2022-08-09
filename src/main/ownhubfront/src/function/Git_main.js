@@ -15,7 +15,7 @@ const Git_main = () => {
     const onSearch = (e) => {
         console.log(search + " 찾기")
         useEffect(()=>{
-            axios.get("/repository")
+            axios.get("/repository/"+search)
                 .then(res => setRepo(res.data))
                 .catch()
         },[])
@@ -44,15 +44,15 @@ const Git_main = () => {
             <Sidebar/>
             <div id='git'>
                 <h2 id="page_title">Repository 둘러보기</h2>
-                <form id="search" onSubmit={onSearch}>
-                    <input id="search_input" name="keyword" value={search} onChange={onSearch} placeholder="Search repository"></input> 
+                <form id="search">
+                    <input id="search_input" name="keyword" value={search} onSubmit={onSearch} placeholder="Search repository"></input> 
                     <button id="btn_search">search</button>
                 </form>
-                <div>
+            </div>
+            <div id="result">
                 <CommonTable headersName={['번호', '이름', '등록일', '작성자']}>
-        {item}
-        </CommonTable>
-                </div>
+                    {item}
+                </CommonTable>
             </div>
         </div>
     )

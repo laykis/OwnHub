@@ -26,7 +26,7 @@ function Board() {
         console.log("content =", content)
         console.log("type =", cboard)
 
-        axios.post("/main/board/submit", null, {
+        axios.post("/board/submit", null, {
             param: {
                 "title" : title,
                 "content" : content,
@@ -35,7 +35,7 @@ function Board() {
         })
             .then(res => {
                 console.log(res)
-                if(res.data.result === "sucsess"){
+                if(res.data.result === "success"){
                     console.log("content post sucsess")
                     alert("게시 완료")
                     window.location.href = "redirect:/content"

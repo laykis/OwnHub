@@ -11,7 +11,7 @@ const CommonTable = props => {
           {
             headersName.map((item, index) => {
               return (
-                <td className="common-table-header-column4" key={index}>{ item }</td>
+                <td className="common-table-header-column8" key={index}>{ item }</td>
               )
             })
           }

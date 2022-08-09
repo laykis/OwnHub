@@ -3,7 +3,7 @@ import axios from "axios";
 import "../each_page.css";
 import Sidebar from "../layout/sidebar_member";
 
-import CommonTable from "./CommonTable";
+import CommonTable from "./CommonTable8";
 import CommonTableColumn from "./CommonColumn";
 import CommonTableRow from "./CommonRow";
 
