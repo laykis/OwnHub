@@ -6,7 +6,7 @@ plugins {
 
 group = 'Kim'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '8'
+sourceCompatibility = '15'
 
 configurations {
 	compileOnly {
