@@ -79,7 +79,6 @@ function Login() {
                     <button type='button' id="loginBtn" onClick={onClickLogin} class="btn primary">로그인</button>
                     <br/>
                     <a id="signup" href='/signup'>회원가입</a>
-                    <a id="num_search" href="$">비밀번호 찾기</a>
                 </div>
             </div>
         </div>

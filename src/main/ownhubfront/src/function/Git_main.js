@@ -7,21 +7,17 @@ import CommonTableColumn from "./CommonColumn";
 import CommonTableRow from "./CommonRow";
 import Sidebar from "../layout/sidebar_git";
 
+function GetData(){
+    // Repo 명단 조회
+    const [data, setData] = useState({});
+    useEffect(() => {
+        axios.get('/teamrepo')
+            .then((response)=> {
+            setData(response.data);
+            })
+    }, []);
 
-const Git_main = () => {
-
-    // Repository 검색 
-    const [search, setRepo] = useState('');
-    const onSearch = (e) => {
-        console.log(search + " 찾기")
-        useEffect(()=>{
-            axios.get("/repository/"+search)
-                .then(res => setRepo(res.data))
-                .catch()
-        },[])
-    };
-
-    const item = (Object.values(search)).map((item) => (
+    const item = (Object.values(data)).map((item) => (
         <CommonTableRow key={item.id}>
             <CommonTableColumn>{item.id}</CommonTableColumn>
             <CommonTableColumn>
@@ -33,10 +29,27 @@ const Git_main = () => {
             <CommonTableColumn>{item.cuid}</CommonTableColumn>
         </CommonTableRow>
     ));
-    
 
-    // 검색한 Repository 보여주기 
+    return item;
+};
 
+
+function Git_main() {
+    const item = GetData();
+
+    // Repository 검색 
+    const [search, setRepo] = useState('');
+    const onSearch = (e) => {
+        console.log(search + " 찾기")
+        useEffect(()=>{
+            axios.get("/repository/"+search)
+                .then(res => setRepo(res.data))
+                .catch()
+        },[])
+    };
+    const onChangeRepo = (e) => {
+        setRepo(e.target.value);
+    };
 
     // 검색 결과 후 보여주기  
     return (
@@ -44,9 +57,15 @@ const Git_main = () => {
             <Sidebar/>
             <div id='git'>
                 <h2 id="page_title">Repository 둘러보기</h2>
-                <form id="search">
-                    <input id="search_input" name="keyword" value={search} onSubmit={onSearch} placeholder="Search repository"></input> 
-                    <button id="btn_search">search</button>
+                <form id="search" onSubmit={onSearch} >
+                    <input 
+                        id="search_input" 
+                        name="keyword" 
+                        value={search} 
+                        onChange={onChangeRepo} 
+                        placeholder="Search repository"
+                    ></input> 
+                    <button id="btn_search" type="primary" htmlType="submit">search</button>
                 </form>
             </div>
             <div id="result">
