@@ -38,7 +38,7 @@ function Board() {
                 if(res.data.result === "success"){
                     console.log("content post success")
                     alert("게시 완료")
-                    window.location.href = "redirect:/content"
+                    window.location.href = "board/:vocID"
                 }
             })
             .catch()

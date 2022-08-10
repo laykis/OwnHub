@@ -43,7 +43,7 @@ function Git_main() {
         console.log(search + " 찾기")
         useEffect(()=>{
             axios.get("/repository/"+search)
-                .then(res => setRepo(res.data))
+                .then(res => onChangeRepo(res.data))
                 .catch()
         },[])
     };
