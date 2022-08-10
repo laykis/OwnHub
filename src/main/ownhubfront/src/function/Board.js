@@ -36,7 +36,7 @@ function Board() {
             .then(res => {
                 console.log(res)
                 if(res.data.result === "success"){
-                    console.log("content post sucsess")
+                    console.log("content post success")
                     alert("게시 완료")
                     window.location.href = "redirect:/content"
                 }
