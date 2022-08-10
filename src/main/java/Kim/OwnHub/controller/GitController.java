@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import org.eclipse.jgit.api.Git;
 import org.eclipse.jgit.api.errors.GitAPIException;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
@@ -23,19 +24,19 @@ public class GitController extends Controller {
     private final UserRepository userRepository;
     private final OwnGit ownGit;
 
-    @GetMapping("/createRepo")
-    public String CreateNewRepo(HttpServletRequest request, String repoName) throws GitAPIException, IOException {
+    @PostMapping("/main/createRepo")
+    public String CreateNewRepo(HttpServletRequest request, String name) throws GitAPIException, IOException {
+        System.out.println(name);
+//        String uid = getSession(request, "uid");
+//
+//        Optional<UserInfo> userInfo = userRepository.findById(Long.parseLong(uid));
+//        UserInfo user = userInfo.orElseThrow(NoSuchElementException::new);
 
-        String uid = getSession(request, "uid");
 
-        Optional<UserInfo> userInfo = userRepository.findById(Long.parseLong(uid));
-        UserInfo user = userInfo.orElseThrow(NoSuchElementException::new);
+        ownGit.createNewRepo("test", name);
 
 
-        ownGit.createNewRepo(user.getUserId(), repoName);
-//        createNewRepo("laykis", "laytest");
-
-        return repoName + "Repository 생성 성공!";
+        return "success";
     }
 
     @GetMapping("/openRepo")
@@ -53,6 +54,8 @@ public class GitController extends Controller {
 
         return "openSucsess";
     }
+
+
 
 
 

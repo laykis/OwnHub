@@ -43,7 +43,12 @@ function Member() {
     const onUser = (e) => {
         console.log(search + " 찾기")
         useEffect(()=>{
-            axios.get("/member_list/"+user)
+            axios.post("/member_list/", {
+                param : {
+                    userName : user
+                }
+
+            })
                 .then(res => setUser(res.data))
                 .catch()
         },[])
