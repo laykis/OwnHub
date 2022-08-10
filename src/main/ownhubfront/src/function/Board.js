@@ -35,7 +35,7 @@ function Board() {
         })
             .then(res => {
                 console.log(res)
-                if(res.data.result === "success"){
+                if(res.data.result === "sucsess"){
                     console.log("content post sucsess")
                     alert("게시 완료")
                     window.location.href = "redirect:/content"
@@ -53,7 +53,7 @@ function Board() {
                 <h2 id="title_page">글쓰기</h2>
                 <div id="writing">
                     <div>
-                        <select id="cboard" value={cboard} onChange={handleSelect}>
+                        <select id="cboard" name="cboard" value={cboard} onChange={handleSelect}>
                             <option value="none">==선택==</option>
                             <option value="notice">공지사항</option>
                             <option value="team">부서게시판</option>

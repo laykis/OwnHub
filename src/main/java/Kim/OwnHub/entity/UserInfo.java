@@ -1,5 +1,6 @@
 package Kim.OwnHub.entity;
 
+import Kim.OwnHub.DTO.UserDTO;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -38,6 +39,20 @@ public class UserInfo {
     private String team;
 
 
+    public UserDTO convert(UserInfo userInfo){
+
+        UserDTO userDTO = new UserDTO();
+
+        userDTO.setUsername(userInfo.getUsername());
+        userDTO.setUserId(userInfo.getUserId());
+        userDTO.setUserPw(userInfo.getUserPw());
+        userDTO.setEmail(userInfo.getEmail());
+        userDTO.setRole(userInfo.getRole());
+        userDTO.setAuth(userInfo.getAuth());
+        userDTO.setTeam(userInfo.getTeam());
+
+        return userDTO;
+    }
 
 
 

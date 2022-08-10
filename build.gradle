@@ -41,9 +41,7 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
-tasks.named('test') {
-	useJUnitPlatform()
-}
+
 
 
 def frontendDir = "$projectDir/src/main/ownhubfront"
@@ -59,7 +57,6 @@ sourceSets {
 processResources {
 	dependsOn "copyReactBuildFiles"
 }
-
 
 task installReact(type: Exec) {
 	workingDir "$frontendDir"
@@ -102,4 +99,8 @@ task copyReactBuildFiles(type: Copy) {
 
 task buildAdmin(type: NpmTask) {
 	args = ['run', 'build']
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
 }

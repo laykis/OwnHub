@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 @Service
 @RequiredArgsConstructor
@@ -17,6 +18,14 @@ public class UserService {
     //의존성 주입(DI, Dependency Injection)
     private final UserRepository userRepository;
 
+    //유저 uid로 유저 정보를 반환해주는 메소드
+    public UserDTO getUserByUid(Long uid){
+        UserInfo userInfo = userRepository.findById(uid).orElseThrow(NoSuchElementException::new);
+        UserDTO userDTO = userInfo.convert(userInfo);
+
+        return userDTO;
+
+    }
     //유저의 계정 Id로 유저 정보를 반환해주는 메소드
     public UserDTO getUserByUserId(String userId){
 
