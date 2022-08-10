@@ -7,6 +7,11 @@ plugins {
 
 apply plugin: 'com.github.node-gradle.node'
 
+node {
+	version = "18.7.0"
+	download = true
+	nodeModulesDir = file("${projectDir}/src/main/resources/static")
+}
 group = 'Kim'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '15'
@@ -68,6 +73,14 @@ task installReact(type: Exec) {
 		commandLine 'npm', 'install'
 	}
 }
+
+task copyFrontLib(type: Copy){
+	from "${projectDir}/src/main/resources/static"
+	into "${projectDir}/build/resources/main/static/."
+}
+
+copyFrontLib.dependsOn npmInstall
+compileJava.dependsOn copyFrontLib
 
 task buildReact(type: Exec) {
 	dependsOn "installReact"
