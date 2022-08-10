@@ -98,7 +98,6 @@ button:hover{
   width: 300px;
 }
 
-
 .login-form input {
   width: 250px;
   height: 45px;
@@ -110,14 +109,7 @@ button:hover{
 }
 
 #signup {
-  text-align: left;
-  float: left;  
-  padding: 10px 25px;
-}
-
-#num_search {
-  text-align: right;
-  float: right;
+  text-align: center;
   padding: 10px 25px;
 }
 
