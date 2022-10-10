@@ -20,4 +20,13 @@
 
 ---
 
-##### 2. 
+##### 2. 기능 설계
+
+![스크린샷 2022-10-10 오후 1 33 24](https://user-images.githubusercontent.com/73100987/194799737-25df8150-c638-40d4-9eab-9bd2168472a2.png)
+
+### 2-1. DB 설계
+
+![OIDC DB 스키마](https://user-images.githubusercontent.com/73100987/194799779-8ff57c96-2695-4c20-99df-696c485aa945.png)
+
+---
+
